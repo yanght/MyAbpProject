@@ -1,2 +1,0 @@
-# MyAbpProject
-ABP Demo
