@@ -1,3 +1,4 @@
+using MyProject.Migrations.SeedData;
 using System.Data.Entity.Migrations;
 
 namespace MyProject.Migrations
@@ -14,6 +15,10 @@ namespace MyProject.Migrations
         {
             // This method will be called every time after migrating to the latest version.
             // You can add any seed data here...
+
+            new DefaultTestDataForTask(context).Create();
+            new DefaultTestDataForUser(context).Create();
+
         }
     }
 }

@@ -185,8 +185,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\MyProjectDbContext.cs" />
+    <Compile Include="EntityFramework\Repositories\BackendTaskRepository.cs" />
     <Compile Include="EntityFramework\Repositories\MyProjectRepositoryBase.cs" />
+    <Compile Include="Migrations\201801291251398_add-task.cs" />
+    <Compile Include="Migrations\201801291251398_add-task.Designer.cs">
+      <DependentUpon>201801291251398_add-task.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SeedData\DefaultTestDataForTask.cs" />
+    <Compile Include="Migrations\SeedData\DefaultTestDataForUser.cs" />
     <Compile Include="MyProjectDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -199,6 +206,11 @@
       <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
       <Name>MyProject.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201801291251398_add-task.resx">
+      <DependentUpon>201801291251398_add-task.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

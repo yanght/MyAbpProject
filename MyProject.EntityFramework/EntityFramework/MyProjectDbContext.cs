@@ -1,15 +1,18 @@
 ﻿using System.Data.Common;
+using System.Data.Entity;
 using Abp.EntityFramework;
 
 namespace MyProject.EntityFramework
 {
-    public class MyProjectDbContext : AbpDbContext
+    public class MyProjectDbContext :DbContext//AbpDbContext
     {
         //TODO: Define an IDbSet for each Entity...
 
         //Example:
         //public virtual IDbSet<User> Users { get; set; }
 
+        public virtual IDbSet<Tasks.Task> Tasks { get; set; }
+        public virtual IDbSet<Tasks.User> Users { get; set; }
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
          *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not
