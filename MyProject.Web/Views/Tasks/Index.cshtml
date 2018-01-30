@@ -1,8 +1,10 @@
 ﻿
-@model IEnumerable<MyProject.Tasks.Dtos.TaskDto>
+@{
+    var response = Model as MyProject.Web.Models.IndexViewModel;
+}
 <div>
     <ul class="list-group">
-        @foreach (var task in Model)
+        @foreach (var task in response.Tasks)
         {
             <li class="list-group-item">
                 <div class="btn-group pull-right">

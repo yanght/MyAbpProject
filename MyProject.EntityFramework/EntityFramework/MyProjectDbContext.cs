@@ -4,7 +4,7 @@ using Abp.EntityFramework;
 
 namespace MyProject.EntityFramework
 {
-    public class MyProjectDbContext :DbContext//AbpDbContext
+    public class MyProjectDbContext :AbpDbContext
     {
         //TODO: Define an IDbSet for each Entity...
 

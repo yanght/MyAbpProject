@@ -397,3 +397,53 @@ DEBUG 2018-01-29 23:56:55,288 [1    ] Abp.AutoMapper.AbpAutoMapperModule       -
 DEBUG 2018-01-29 23:56:55,630 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyProject.Tasks.ITaskAppService' with service name 'app/task'.
 WARN  2018-01-29 23:57:07,373 [6    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
 WARN  2018-01-29 23:57:07,440 [6    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+DEBUG 2018-01-30 19:52:34,699 [12   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2018-01-30 19:52:34,700 [12   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-01-30 19:52:34,701 [12   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-01-30 19:52:34,701 [12   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2018-01-30 19:55:48,152 [13   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-01-30 19:55:48,171 [13   ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2018-01-30 19:55:48,179 [13   ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.Web.MyProjectWebModule, MyProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-30 19:55:48,181 [13   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-30 19:55:48,181 [13   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=3.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-30 19:55:48,181 [13   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-30 19:55:48,181 [13   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-30 19:55:48,181 [13   ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectDataModule, MyProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-30 19:55:48,181 [13   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=3.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-30 19:55:48,182 [13   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-30 19:55:48,182 [13   ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectCoreModule, MyProject.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-30 19:55:48,182 [13   ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectApplicationModule, MyProject.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-30 19:55:48,182 [13   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-30 19:55:48,182 [13   ] Abp.Modules.AbpModuleManager             - Loaded module: MyProject.MyProjectWebApiModule, MyProject.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-30 19:55:48,183 [13   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=3.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-30 19:55:48,185 [13   ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2018-01-30 19:55:48,490 [13   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: MyProject.EntityFramework.MyProjectDbContext, MyProject.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-30 19:55:49,619 [13   ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2018-01-30 19:55:49,626 [13   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-01-30 19:55:49,627 [13   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2018-01-30 19:55:49,636 [13   ] Abp.Localization.LocalizationManager     - Initialized localization source: MyProject
+DEBUG 2018-01-30 19:55:49,771 [13   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-01-30 19:55:49,823 [13   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 2 classes define auto mapping attributes
+DEBUG 2018-01-30 19:55:49,823 [13   ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Tasks.Dtos.CreateTaskInput
+DEBUG 2018-01-30 19:55:49,828 [13   ] Abp.AutoMapper.AbpAutoMapperModule       - MyProject.Tasks.Dtos.UpdateTaskInput
+DEBUG 2018-01-30 19:55:50,082 [13   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'MyProject.Tasks.ITaskAppService' with service name 'app/task'.
+ERROR 2018-01-30 19:55:54,645 [14   ] yProject.Web.Controllers.TasksController - The model item passed into the dictionary is of type 'MyProject.Web.Models.IndexViewModel', but this dictionary requires a model item of type 'System.Collections.Generic.IEnumerable`1[MyProject.Tasks.Dtos.TaskDto]'.
+System.InvalidOperationException: The model item passed into the dictionary is of type 'MyProject.Web.Models.IndexViewModel', but this dictionary requires a model item of type 'System.Collections.Generic.IEnumerable`1[MyProject.Tasks.Dtos.TaskDto]'.
+   在 System.Web.Mvc.ViewDataDictionary`1.SetModel(Object value)
+   在 System.Web.Mvc.ViewDataDictionary..ctor(ViewDataDictionary dictionary)
+   在 System.Web.Mvc.WebViewPage`1.SetViewData(ViewDataDictionary viewData)
+   在 System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   在 System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+WARN  2018-01-30 19:57:31,910 [9    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2018-01-30 19:57:31,976 [9    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+DEBUG 2018-01-30 22:33:01,197 [25   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2018-01-30 22:33:01,202 [25   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-01-30 22:33:01,202 [25   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2018-01-30 22:33:01,203 [25   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
