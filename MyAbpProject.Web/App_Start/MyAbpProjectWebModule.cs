@@ -13,6 +13,9 @@ using MyAbpProject.Api;
 using Castle.MicroKernel.Registration;
 using Hangfire;
 using Microsoft.Owin.Security;
+using Abp.WebApi.Controllers.Dynamic.Builders;
+using Abp.Application.Services;
+using Abp.Configuration.Startup;
 
 namespace MyAbpProject.Web
 {
@@ -27,6 +30,8 @@ namespace MyAbpProject.Web
     {
         public override void PreInitialize()
         {
+            Configuration.Modules.AbpWeb().AntiForgery.IsEnabled = false;
+
             //Enable database based localization
             Configuration.Modules.Zero().LanguageManagement.EnableDbLocalization();
 
@@ -54,6 +59,7 @@ namespace MyAbpProject.Web
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
         }
     }
 }
