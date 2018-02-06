@@ -33,7 +33,7 @@ namespace MyAbpProject.Api.OAuthOptions
                     TokenEndpointPath = new PathString("/oauth/token"),
                     Provider = provider,
                     RefreshTokenProvider = refreshTokenProvider,
-                    AccessTokenExpireTimeSpan = TimeSpan.FromSeconds(30),
+                    AccessTokenExpireTimeSpan = TimeSpan.FromHours(30),
                     AllowInsecureHttp = true
                 };
             }
