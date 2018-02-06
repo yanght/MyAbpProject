@@ -6,7 +6,9 @@ using MyAbpProject.EntityFramework;
 
 namespace MyAbpProject
 {
-    [DependsOn(typeof(AbpZeroEntityFrameworkModule), typeof(MyAbpProjectCoreModule))]
+    [DependsOn(typeof(AbpZeroEntityFrameworkModule),
+        typeof(MyAbpProjectCoreModule)
+          )]
     public class MyAbpProjectDataModule : AbpModule
     {
         public override void PreInitialize()

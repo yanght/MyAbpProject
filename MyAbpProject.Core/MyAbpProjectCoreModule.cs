@@ -43,6 +43,8 @@ namespace MyAbpProject
             Configuration.Authorization.Providers.Add<MyAbpProjectAuthorizationProvider>();
 
             Configuration.Settings.Providers.Add<AppSettingProvider>();
+            
+
         }
 
         public override void Initialize()

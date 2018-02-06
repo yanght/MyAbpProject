@@ -1,14 +1,19 @@
 ﻿using System.Data.Common;
+using System.Data.Entity;
 using Abp.Zero.EntityFramework;
 using MyAbpProject.Authorization.Roles;
 using MyAbpProject.Authorization.Users;
 using MyAbpProject.MultiTenancy;
+using MyAbpProject.Recharge;
 
 namespace MyAbpProject.EntityFramework
 {
     public class MyAbpProjectDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         //TODO: Define an IDbSet for your Entities...
+
+        public IDbSet<RechargeField> RechargeFields { get; set; }
+        public IDbSet<RechargeRecord> RechargeRecords { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

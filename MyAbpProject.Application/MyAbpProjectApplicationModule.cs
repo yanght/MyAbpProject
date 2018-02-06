@@ -32,12 +32,19 @@ namespace MyAbpProject
 
                 cfg.CreateMap<CreateRoleDto, Role>().ForMember(x => x.Permissions, opt => opt.Ignore());
                 cfg.CreateMap<RoleDto, Role>().ForMember(x => x.Permissions, opt => opt.Ignore());
-                
+
                 cfg.CreateMap<UserDto, User>();
                 cfg.CreateMap<UserDto, User>().ForMember(x => x.Roles, opt => opt.Ignore());
 
                 cfg.CreateMap<CreateUserDto, User>();
                 cfg.CreateMap<CreateUserDto, User>().ForMember(x => x.Roles, opt => opt.Ignore());
+
+
+                //解析依赖，并进行映射规则创建
+                var mappers = IocManager.IocContainer.ResolveAll<IDtoMapping>();
+                foreach (var dtomap in mappers)
+                    dtomap.CreateMapping(cfg);
+
             });
         }
     }
