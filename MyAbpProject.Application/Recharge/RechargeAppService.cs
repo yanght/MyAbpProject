@@ -1,6 +1,7 @@
 ﻿using Abp.Application.Services;
 using Abp.Domain.Repositories;
 using AutoMapper;
+using MyAbpProject.IRepositories;
 using MyAbpProject.Recharge.Dtos;
 using System;
 using System.Collections.Generic;
@@ -14,17 +15,28 @@ namespace MyAbpProject.Recharge
     {
         private readonly IRepository<RechargeField> _rechargeFieldRepository;
         private readonly IRepository<RechargeRecord, long> _rechargeRecordRepository;
+        private readonly IRechargeRepository _rechargeRepository;
+        private readonly IDemoRepository _demoRepository;
 
         public RechargeAppService(IRepository<RechargeField> rechargeFieldRepository,
-            IRepository<RechargeRecord, long> rechargeRecordRepository)
+            IRepository<RechargeRecord, long> rechargeRecordRepository,
+            IRechargeRepository rechargeRepository,
+            IDemoRepository demoRepository)
         {
             _rechargeFieldRepository = rechargeFieldRepository;
             _rechargeRecordRepository = rechargeRecordRepository;
+            _rechargeRepository = rechargeRepository;
+            _demoRepository = demoRepository;
+
         }
 
         public GetRechargeRecordListOutput GetRechargeRecordList(GetRechargeRecordListInput input)
         {
             var records = _rechargeRecordRepository.GetAllList();
+
+            var files = _rechargeRepository.GetRechargeFields();
+
+            var files1 = _demoRepository.GetFields();
 
             return new GetRechargeRecordListOutput()
             {
