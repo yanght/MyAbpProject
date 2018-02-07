@@ -2844,12 +2844,12 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\App_Start\BundleConfig.cs" />
-    <Compile Include="Controllers\App_Start\MyAbpProjectNavigationProvider.cs" />
-    <Compile Include="Controllers\App_Start\MyAbpProjectWebModule.cs" />
-    <Compile Include="Controllers\App_Start\PageNames.cs" />
-    <Compile Include="Controllers\App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\App_Start\Startup.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\MyAbpProjectNavigationProvider.cs" />
+    <Compile Include="App_Start\MyAbpProjectWebModule.cs" />
+    <Compile Include="App_Start\PageNames.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
