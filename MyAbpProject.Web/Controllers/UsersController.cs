@@ -10,6 +10,7 @@ using Abp.Dependency;
 using Abp.Events.Bus.Exceptions;
 using Abp.Events.Bus.Handlers;
 using Abp.UI;
+using Abp.Web.Models;
 using Abp.Web.Mvc.Authorization;
 using MyAbpProject.Authorization;
 using MyAbpProject.Authorization.Roles;
@@ -18,7 +19,7 @@ using MyAbpProject.Web.Models.Users;
 
 namespace MyAbpProject.Web.Controllers
 {
-    [AbpMvcAuthorize(PermissionNames.Pages_Users)]
+    //[AbpMvcAuthorize(PermissionNames.Pages_Users)]
     public class UsersController : MyAbpProjectControllerBase
     {
         private readonly IUserAppService _userAppService;
@@ -41,6 +42,13 @@ namespace MyAbpProject.Web.Controllers
             };
 
             return View(model);
+        }
+
+        public async Task<JsonResult> UserList()
+        {
+            var users = (await _userAppService.GetAll(new PagedResultRequestDto { MaxResultCount = int.MaxValue })).Items; //Paging not implemented yet
+
+            return AbpJson(new { code = 0, msg = string.Empty, count = users.Count, data = users },null,null,JsonRequestBehavior.AllowGet,false);
         }
 
         public async Task<ActionResult> EditUserModal(long userId)
