@@ -5,19 +5,19 @@
     @Html.IncludeScript("/content/js/cache.js")
 }
 
-<form class="layui-form" action="/account/login" method="post">
+<form class="layui-form">
     <div class="login_face"><img src="/content/images/face.jpg" class="userAvatar"></div>
     <div class="layui-form-item input-item">
         <label for="UsernameOrEmailAddress">用户名</label>
-        <input type="text" placeholder="请输入用户名" autocomplete="off" id="UsernameOrEmailAddress" class="layui-input" lay-verify="required" value="admin">
+        <input type="text" placeholder="请输入用户名" autocomplete="off" id="UsernameOrEmailAddress" name="UsernameOrEmailAddress" class="layui-input" lay-verify="required" value="admin">
     </div>
     <div class="layui-form-item input-item">
         <label for="Password">密码</label>
-        <input type="password" placeholder="请输入密码" autocomplete="off" id="Password" class="layui-input" lay-verify="required" value="123qwe">
+        <input type="password" placeholder="请输入密码" autocomplete="off" id="Password" name="Password" class="layui-input" lay-verify="required" value="123qwe">
     </div>
     <div class="layui-form-item input-item" id="imgCode">
         <label for="code">验证码</label>
-        <input type="text" placeholder="请输入验证码" autocomplete="off" id="code" class="layui-input">
+        <input type="text" placeholder="请输入验证码" autocomplete="off" id="Code" name="Code" class="layui-input">
         <img src="/content/images/code.jpg">
     </div>
     <div class="layui-form-item">

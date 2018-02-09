@@ -4661,3 +4661,174 @@ ERROR 2018-02-08 18:04:50,878 [60   ] Abp.Logging.LogHelper                    -
    at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
    at System.Web.HttpServerUtility.MapPath(String path)
    at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 09:53:20,242 [16   ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537668002369435! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 09:53:37,395 [12   ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537668173939248! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 09:55:55,120 [72   ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537669551198023! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 09:56:01,771 [64   ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537669617691826! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 09:56:11,443 [12   ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537669714427359! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 09:56:18,316 [10   ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537669783141289! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 10:00:06,437 [8    ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537672064351767! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 10:03:05,720 [24   ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537673857184311! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 10:03:54,047 [8    ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537674340451952! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 10:04:30,733 [26   ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537674707312936! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 10:08:57,248 [8    ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537677372475374! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 10:09:04,726 [8    ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537677447249651! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 10:09:35,896 [8    ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537677758947479! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 10:09:39,292 [61   ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537677792909422! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 10:10:28,390 [8    ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537678283877503! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 10:10:54,333 [6    ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537678543322343! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44
+ERROR 2018-02-09 10:12:40,717 [12   ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537679607143190! System.ArgumentException: 路径中具有非法字符。
+   在 System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   在 System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   在 System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   在 System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   在 System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   在 System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   在 System.Web.HttpServerUtility.MapPath(String path)
+   在 Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) 位置 D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:行号 44
+ERROR 2018-02-09 10:12:42,600 [11   ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537679625974267! System.ArgumentException: 路径中具有非法字符。
+   在 System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   在 System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   在 System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   在 System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   在 System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   在 System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   在 System.Web.HttpServerUtility.MapPath(String path)
+   在 Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) 位置 D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:行号 44
+ERROR 2018-02-09 10:14:43,727 [12   ] Abp.Logging.LogHelper                    - Can not find file for: /Views/Account/Login.js?v=636537680837243548! System.ArgumentException: Illegal characters in path.
+   at System.Security.Permissions.FileIOPermission.CheckIllegalCharacters(String[] str, Boolean onlyCheckExtras)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.GetPathWithVersioning(String path) in D:\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Extensions\HtmlHelperResourceExtensions.cs:line 44

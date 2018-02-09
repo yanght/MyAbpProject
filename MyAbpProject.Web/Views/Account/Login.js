@@ -12,10 +12,14 @@
     //登录按钮
     form.on("submit(login)", function (data) {
         $(this).text("登录中...").attr("disabled", "disabled").addClass("layui-disabled");
-        //监听提交
-        form.on('submit(login)', function (data) {
-            layer.msg(JSON.stringify(data));
-            return false;
+
+        $.post("/account/login", data.field, function (resp) {
+            if (resp.success) {
+                window.location.href = resp.targetUrl;
+            } else {
+                layer.alert(resp.error);
+                $(this).text("登录").attr("disabled", "").removeClass("layui-disabled");
+            }
         });
         return false;
     })
