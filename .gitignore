@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 MyAbpProject.Web/App_Data/Logs/
+MyAbpProject.Web/App_Data/Logs/Logs.txt
