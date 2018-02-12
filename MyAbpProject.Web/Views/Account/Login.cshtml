@@ -1,55 +1,31 @@
-﻿@using Abp.MultiTenancy
-@using Abp.Web.Mvc.Extensions
-@using Microsoft.Owin.Security
-@model MyAbpProject.Web.Models.Account.LoginFormViewModel
-@section Styles
-{
-    @Html.IncludeStyle("~/Views/Account/Login.css")
-}
+﻿@using Abp.Web.Mvc.Extensions
 @section Scripts
 {
-    @Html.IncludeScript("~/Views/Account/Login.js")
+    @Html.IncludeScript("/Views/Account/Login.js?v="+DateTime.Now.Ticks)
+    @Html.IncludeScript("/content/js/cache.js")
 }
 
-<div class="card">
-    <div class="body">
-        <form id="LoginForm" method="POST" asp-action="Login">
-            <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
-            <input type="hidden" name="returnUrlHash" />
-            <h4 class="text-center">@L("LogIn")</h4>
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="material-icons">person</i>
-                </span>
-                <div class="form-line">
-                    <input type="text" class="form-control" name="UsernameOrEmailAddress" placeholder="@L("UserNameOrEmail")" required autofocus maxlength="100">
-                </div>
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="material-icons">lock</i>
-                </span>
-                <div class="form-line">
-                    <input type="password" class="form-control" name="Password" placeholder="@L("Password")" required maxlength="100">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-8 p-t-5">
-                    <input type="checkbox" name="RememberMe" id="rememberme" class="filled-in chk-col-pink" value="true">
-                    <label for="rememberme">@L("RememberMe")</label>
-                </div>
-                <div class="col-xs-4">
-                    <button id="LoginButton" class="btn btn-block bg-pink waves-effect" type="submit">@L("LogIn")</button>
-                </div>
-            </div>
-            @if (Model.IsSelfRegistrationAllowed)
-            {
-                <div class="row m-t-15 m-b--20">
-                    <div class="col-xs-12">
-                        <a href="@Url.Action("Register", "Account")">@L("Register")</a>
-                    </div>
-                </div>
-            }
-        </form>
+<form class="layui-form">
+    <div class="login_face"><img src="/content/images/face.jpg" class="userAvatar"></div>
+    <div class="layui-form-item input-item">
+        <label for="UsernameOrEmailAddress">用户名</label>
+        <input type="text" placeholder="请输入用户名" autocomplete="off" id="UsernameOrEmailAddress" name="UsernameOrEmailAddress" class="layui-input" lay-verify="required" value="admin">
     </div>
-</div>
+    <div class="layui-form-item input-item">
+        <label for="Password">密码</label>
+        <input type="password" placeholder="请输入密码" autocomplete="off" id="Password" name="Password" class="layui-input" lay-verify="required" value="123qwe">
+    </div>
+    <div class="layui-form-item input-item" id="imgCode">
+        <label for="code">验证码</label>
+        <input type="text" placeholder="请输入验证码" autocomplete="off" id="Code" name="Code" class="layui-input">
+        <img src="/content/images/code.jpg">
+    </div>
+    <div class="layui-form-item">
+        <button class="layui-btn layui-block" lay-filter="login" lay-submit>登录</button>
+    </div>
+    <div class="layui-form-item layui-row">
+        <a href="javascript:;" class="seraph icon-qq layui-col-xs4 layui-col-sm4 layui-col-md4 layui-col-lg4"></a>
+        <a href="javascript:;" class="seraph icon-wechat layui-col-xs4 layui-col-sm4 layui-col-md4 layui-col-lg4"></a>
+        <a href="javascript:;" class="seraph icon-sina layui-col-xs4 layui-col-sm4 layui-col-md4 layui-col-lg4"></a>
+    </div>
+</form>

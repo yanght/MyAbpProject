@@ -37,7 +37,7 @@ namespace MyAbpProject.Api.Controllers
         public AjaxResponse RechargeRecores()
         {
             var records = _rechargeAppService.GetRechargeRecordList(new GetRechargeRecordListInput());
-
+           
             return new AjaxResponse(records);
         }
     }

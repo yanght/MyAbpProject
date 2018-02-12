@@ -1,71 +1,24 @@
-﻿@using System.Threading
-@using System.Web.Optimization
-@using Abp.Timing
-@using MyAbpProject
-@using MyAbpProject.Web.Helpers
-@{
-    SetAntiForgeryCookie();
-}
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html class="loginHtml">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <link rel="shortcut icon" href="~/favicon.ico">
-
-    <title>MyAbpProject</title>
-
-    @Styles.Render("~/Bundles/account-vendor/css")
-
-    <!-- View specific styles -->
+    <title>@ViewBag.Title</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/content/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="/content/css/public.css" media="all" />
     @RenderSection("styles", required: false)
-
-    <script type="text/javascript">
-        //This is used to get the application's root path from javascript. It's useful if you're running application in a virtual directory under IIS.
-        var abp = abp || {}; abp.appPath = '@ApplicationPath';
-    </script>
-
 </head>
-<body class="login-page">
-    <div class="login-box">
-        <div class="logo">
-            <a href="javascript:void(0);">MyAbpProject</a>
-        </div>
+<body class="loginBody">
 
-        @if (ViewBag.IsMultiTenancyEnabled)
-        {
-            @Html.Action("TenantChange", "Account")
-        }
+    @RenderBody()
 
-        @RenderBody()
-
-        @Html.Action("_AccountLanguages", "Account")
-
-        <div class="row">
-            <div class="col-xs-12 text-center" style="color: #e9e9e9">
-                <small>&copy; @DateTime.Now.Year MyAbpProject. <b>Version </b> @AppVersionHelper.Version [@AppVersionHelper.ReleaseDate.ToString("yyyyMMdd")]</small>
-            </div>
-        </div>
-
-    </div>
-
-    @Scripts.Render("~/Bundles/account-vendor/js/bottom")
-
-    <script>
-        //Localizing momentjs
-        moment.locale('@Thread.CurrentThread.CurrentUICulture.Name');
-    </script>
-
-    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
-    <script src="~/api/AbpServiceProxies/GetAll?v=@(Clock.Now.Ticks)"></script>
-    <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
-
-    <!-- View specific scripts -->
+    <script type="text/javascript" src="/content/layui/layui.js"></script>
+    <script type="text/javascript" src="/content/js/cache.js"></script>
     @RenderSection("scripts", required: false)
-    @Html.PartialViewScripts()
 </body>
 </html>

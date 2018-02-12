@@ -1,92 +1,52 @@
-﻿(function () {
-    $(function () {
+﻿layui.use(['form', 'layer', 'table', 'laytpl'], function () {
+    var form = layui.form,
+        layer = parent.layer === undefined ? layui.layer : top.layer,
+        $ = layui.jquery,
+        laytpl = layui.laytpl,
+        table = layui.table;
 
-        var _userService = abp.services.app.user;
-        var _$modal = $('#UserCreateModal');
-        var _$form = _$modal.find('form');
-
-        _$form.validate({
-            rules: {
-                Password: "required",
-                ConfirmPassword: {
-                    equalTo: "#Password"
+    //用户列表
+    var tableIns = table.render({
+        elem: '#userList',
+        url: '/users/userlist',
+        cellMinWidth: 95,
+        page: false,
+        height: "full-125",
+        limits: [10, 15, 20, 25],
+        limit: 10,
+        id: "userListTable",
+        cols: [[
+            { type: "checkbox", fixed: "left", width: 50 },
+            { field: 'userName', title: '用户名', minWidth: 100, align: "center" },
+            {
+                field: 'emailAddress', title: '用户邮箱', minWidth: 200, align: 'center', templet: function (d) {
+                    return '<a class="layui-blue" href="mailto:' + d.emailAddress + '">' + d.emailAddress + '</a>';
                 }
-            }
-        });
-
-        $('#RefreshButton').click(function () {
-            refreshUserList();
-        });
-
-        $('.delete-user').click(function () {
-            var userId = $(this).attr("data-user-id");
-            var userName = $(this).attr('data-user-name');
-
-            deleteUser(userId, userName);
-        });
-
-        $('.edit-user').click(function (e) {
-            var userId = $(this).attr("data-user-id");
-
-            e.preventDefault();
-            $.ajax({
-                url: abp.appPath + 'Users/EditUserModal?userId=' + userId,
-                type: 'POST',
-                contentType: 'application/html',
-                success: function (content) {
-                    $('#UserEditModal div.modal-content').html(content);
-                },
-                error: function (e) { }
-            });
-        });
-
-        _$form.find('button[type="submit"]').click(function (e) {
-            e.preventDefault();
-
-            if (!_$form.valid()) {
-                return;
-            }
-
-            var user = _$form.serializeFormToObject(); //serializeFormToObject is defined in main.js
-            user.roleNames = [];
-            var _$roleCheckboxes = $("input[name='role']:checked");
-            if (_$roleCheckboxes) {
-                for (var roleIndex = 0; roleIndex < _$roleCheckboxes.length; roleIndex++) {
-                    var _$roleCheckbox = $(_$roleCheckboxes[roleIndex]);
-                    user.roleNames.push(_$roleCheckbox.attr('data-role-name'));
-                }
-            }
-
-            abp.ui.setBusy(_$modal);
-            _userService.create(user).done(function () {
-                _$modal.modal('hide');
-                location.reload(true); //reload page to see new user!
-            }).always(function () {
-                abp.ui.clearBusy(_$modal);
-            });
-        });
-
-        _$modal.on('shown.bs.modal', function () {
-            _$modal.find('input:not([type=hidden]):first').focus();
-        });
-
-        function refreshUserList() {
-            location.reload(true); //reload page to see new user!
-        }
-
-        function deleteUser(userId, userName) {
-            abp.message.confirm(
-                "Delete user '" + userName + "'?",
-                function (isConfirmed) {
-                    if (isConfirmed) {
-                        _userService.delete({
-                            id: userId
-                        }).done(function () {
-                            refreshUserList();
-                        });
-                    }
-                }
-            );
-        }
+            },
+            //{ field: 'userSex', title: '用户性别', align: 'center' },
+            //{
+            //    field: 'userStatus', title: '用户状态', align: 'center', templet: function (d) {
+            //        return d.userStatus == "0" ? "正常使用" : "限制使用";
+            //    }
+            //},
+            //{
+            //    field: 'userGrade', title: '用户等级', align: 'center', templet: function (d) {
+            //        if (d.userGrade == "0") {
+            //            return "注册会员";
+            //        } else if (d.userGrade == "1") {
+            //            return "中级会员";
+            //        } else if (d.userGrade == "2") {
+            //            return "高级会员";
+            //        } else if (d.userGrade == "3") {
+            //            return "钻石会员";
+            //        } else if (d.userGrade == "4") {
+            //            return "超级会员";
+            //        }
+            //    }
+            //},
+            { field: 'lastLoginTime', title: '最后登录时间', align: 'center', minWidth: 150 },
+            { title: '操作', minWidth: 175, templet: '#userListBar', fixed: "right", align: "center" }
+        ]]
     });
-})();
+
+})
