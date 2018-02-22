@@ -1,0 +1,63 @@
+﻿@using Abp.Web.Mvc.Extensions
+@{
+    ViewBag.Title = "EditRole";
+    var response = Model as MyAbpProject.Web.Models.Roles.EditRoleModalViewModel;
+    var permissins = response.Permissions;
+}
+@section scripts
+{
+    @Html.IncludeScript("~/Views/Roles/EditRole.js")
+}
+
+<form class="layui-form" action="">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">角色名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="Name" value="" lay-verify="required" autocomplete="off" placeholder="请输入角色名称" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">显示名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="DisplayName" placeholder="请输入显示名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">是否是静态</label>
+            <div class="layui-input-block">
+                <input type="checkbox" name="IsStatic" value="true" lay-skin="switch" lay-text="是|否">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">描述</label>
+        <div class="layui-input-block">
+            <input placeholder="请输入内容摘要" name="Description" class="layui-input">
+        </div>
+    </div>
+
+    <fieldset class="layui-elem-field">
+        <legend>权限</legend>
+        <div class="layui-field-box">
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    @foreach (var p in permissins)
+                    {
+                        <input type="checkbox" name="Permission" value="@p.Name" title="@p.Name" lay-skin="primary">
+                    }
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+

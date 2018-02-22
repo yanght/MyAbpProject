@@ -9,6 +9,9 @@ namespace MyAbpProject.Roles.Dto
     [AutoMapTo(typeof(Role))]
     public class CreateRoleDto
     {
+        public CreateRoleDto() {
+            Permissions = new List<string>();
+        }
         [Required]
         [StringLength(AbpRoleBase.MaxNameLength)]
         public string Name { get; set; }

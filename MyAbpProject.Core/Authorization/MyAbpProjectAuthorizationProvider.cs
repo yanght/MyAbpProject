@@ -13,6 +13,7 @@ namespace MyAbpProject.Authorization
             context.CreatePermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
 
             users.CreateChildPermission("pages_users_create", L("pages_users_create"));
+            users.CreateChildPermission("pages_users_delete", L("pages_users_delete"));
         }
 
         private static ILocalizableString L(string name)

@@ -4,6 +4,7 @@ using Abp.Application.Services.Dto;
 using Abp.Web.Mvc.Authorization;
 using MyAbpProject.Authorization;
 using MyAbpProject.Roles;
+using MyAbpProject.Roles.Dto;
 using MyAbpProject.Web.Models.Roles;
 
 namespace MyAbpProject.Web.Controllers
@@ -42,6 +43,32 @@ namespace MyAbpProject.Web.Controllers
                 Permissions = permissions
             };
             return View("_EditRoleModal", model);
+        }
+
+        public async Task<ActionResult> EditRole(int roleId = 0)
+        {
+            var role = await _roleAppService.Get(new EntityDto(roleId));
+            var permissions = (await _roleAppService.GetAllPermissions()).Items;
+            var model = new EditRoleModalViewModel
+            {
+                Role = role,
+                Permissions = permissions
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> AddRole(CreateRoleDto role)
+        {
+            RoleDto result = await _roleAppService.Create(role);
+
+            return AbpJson(result);
+        }
+
+        public async Task<JsonResult> RolesList()
+        {
+            var roles = (await _roleAppService.GetAll(new PagedAndSortedResultRequestDto())).Items;
+            return AbpJson(new { code = 0, msg = string.Empty, count = roles.Count, data = roles }, behavior: JsonRequestBehavior.AllowGet, wrapResult: false);
         }
     }
 }

@@ -425,27 +425,39 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\images.css" />
+    <Content Include="Content\css\index.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\message.css" />
     <Content Include="Content\css\news.css" />
+    <Content Include="Content\css\public.css" />
     <Content Include="Content\css\user.css" />
     <Content Include="Content\images\alipay.jpg" />
+    <Content Include="Content\images\close.png" />
     <Content Include="Content\images\code.jpg" />
     <Content Include="Content\images\face.jpg" />
+    <Content Include="Content\images\fly.png" />
+    <Content Include="Content\images\git.png" />
+    <Content Include="Content\images\layui.png" />
+    <Content Include="Content\images\login_bg.jpg" />
+    <Content Include="Content\images\mayun.png" />
     <Content Include="Content\images\userface1.jpg" />
     <Content Include="Content\images\userface2.jpg" />
     <Content Include="Content\images\userface3.jpg" />
     <Content Include="Content\images\userface4.jpg" />
     <Content Include="Content\images\userface5.jpg" />
     <Content Include="Content\images\wechat.jpg" />
+    <Content Include="Content\js\address.js" />
     <Content Include="Content\js\bodyTab.js" />
+    <Content Include="Content\js\cache.js" />
+    <Content Include="Content\js\cacheUserInfo.js" />
     <Content Include="Content\js\index.js" />
     <Content Include="Content\js\leftNav.js" />
     <Content Include="Content\js\main.js" />
     <Content Include="Content\layui\css\layui.css" />
     <Content Include="Content\layui\css\layui.mobile.css" />
     <Content Include="Content\layui\css\modules\code.css" />
+    <Content Include="Content\layui\css\modules\laydate\default\laydate.css" />
     <Content Include="Content\layui\css\modules\laydate\icon.png" />
     <Content Include="Content\layui\css\modules\laydate\laydate.css" />
     <Content Include="Content\layui\css\modules\layer\default\icon-ext.png" />
@@ -526,8 +538,10 @@
     <Content Include="Content\layui\images\face\71.gif" />
     <Content Include="Content\layui\images\face\8.gif" />
     <Content Include="Content\layui\images\face\9.gif" />
+    <Content Include="Content\layui\layui.all.js" />
     <Content Include="Content\layui\layui.js" />
     <Content Include="Content\layui\lay\dest\layui.all.js" />
+    <Content Include="Content\layui\lay\modules\carousel.js" />
     <Content Include="Content\layui\lay\modules\code.js" />
     <Content Include="Content\layui\lay\modules\element.js" />
     <Content Include="Content\layui\lay\modules\flow.js" />
@@ -539,10 +553,14 @@
     <Content Include="Content\layui\lay\modules\laypage.js" />
     <Content Include="Content\layui\lay\modules\laytpl.js" />
     <Content Include="Content\layui\lay\modules\mobile.js" />
+    <Content Include="Content\layui\lay\modules\table.js" />
     <Content Include="Content\layui\lay\modules\tree.js" />
     <Content Include="Content\layui\lay\modules\upload.js" />
     <Content Include="Content\layui\lay\modules\util.js" />
     <Content Include="Content\page\404.html" />
+    <Content Include="Content\page\doc\addressDoc.html" />
+    <Content Include="Content\page\doc\bodyTabDoc.html" />
+    <Content Include="Content\page\doc\navDoc.html" />
     <Content Include="Content\page\img\images.html" />
     <Content Include="Content\page\img\images.js" />
     <Content Include="Content\page\links\linksAdd.html" />
@@ -562,6 +580,15 @@
     <Content Include="Content\page\news\newsList.js" />
     <Content Include="Content\page\systemParameter\systemParameter.html" />
     <Content Include="Content\page\systemParameter\systemParameter.js" />
+    <Content Include="Content\page\systemSetting\basicParameter.html" />
+    <Content Include="Content\page\systemSetting\basicParameter.js" />
+    <Content Include="Content\page\systemSetting\icons.html" />
+    <Content Include="Content\page\systemSetting\icons.js" />
+    <Content Include="Content\page\systemSetting\linkList.html" />
+    <Content Include="Content\page\systemSetting\linkList.js" />
+    <Content Include="Content\page\systemSetting\linksAdd.html" />
+    <Content Include="Content\page\systemSetting\logs.html" />
+    <Content Include="Content\page\systemSetting\logs.js" />
     <Content Include="Content\page\user\address.js" />
     <Content Include="Content\page\user\addUser.html" />
     <Content Include="Content\page\user\addUser.js" />
@@ -569,15 +596,21 @@
     <Content Include="Content\page\user\allUsers.js" />
     <Content Include="Content\page\user\changePwd.html" />
     <Content Include="Content\page\user\user.js" />
+    <Content Include="Content\page\user\userAdd.html" />
+    <Content Include="Content\page\user\userAdd.js" />
+    <Content Include="Content\page\user\userGrade.html" />
     <Content Include="Content\page\user\userInfo.html" />
+    <Content Include="Content\page\user\userInfo.js" />
+    <Content Include="Content\page\user\userList.html" />
+    <Content Include="Content\page\user\userList.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="log4net.config" />
     <Content Include="Views\Account\Login.js" />
     <Content Include="Views\Home\Index.js" />
+    <Content Include="Views\Roles\EditRole.js" />
     <Content Include="Views\Roles\Index.js" />
-    <Content Include="Views\Roles\_EditRoleModal.js" />
     <Content Include="Views\Shared\_Layout.css" />
     <Content Include="Views\Shared\_Layout.js" />
     <Content Include="Views\Tenants\Index.js" />
@@ -623,6 +656,7 @@
     </Compile>
     <Compile Include="Models\Layout\SideBarNavViewModel.cs" />
     <Compile Include="Models\Layout\SideBarUserAreaViewModel.cs" />
+    <Compile Include="Models\Roles\CreateRoleInput.cs" />
     <Compile Include="Models\Roles\EditRoleModalViewModel.cs" />
     <Compile Include="Models\Roles\RoleListViewModel.cs" />
     <Compile Include="Models\Users\EditUserModalViewModel.cs" />
@@ -647,7 +681,6 @@
     <Content Include="Views\Layout\_RightSideBar.cshtml" />
     <Content Include="Views\Layout\_SideBarUserArea.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
-    <Content Include="Views\Roles\_EditRoleModal.cshtml" />
     <Content Include="Views\Tenants\_EditTenantModal.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\UserList.cshtml" />
@@ -666,6 +699,14 @@
     <Content Include="Content\layui\font\iconfont.svg" />
     <Content Include="Content\layui\font\iconfont.ttf" />
     <Content Include="Content\layui\font\iconfont.woff" />
+    <Content Include="Content\json\address.json" />
+    <Content Include="Content\json\linkList.json" />
+    <Content Include="Content\json\linkLogo.json" />
+    <Content Include="Content\json\logs.json" />
+    <Content Include="Content\json\newsImg.json" />
+    <Content Include="Content\json\userGrade.json" />
+    <Content Include="Content\json\userList.json" />
+    <Content Include="Views\Roles\EditRole.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
