@@ -615,6 +615,7 @@
     <Content Include="Views\Shared\_Layout.js" />
     <Content Include="Views\Tenants\Index.js" />
     <Content Include="Views\Tenants\_EditTenantModal.js" />
+    <Content Include="Views\Users\EditUser.js" />
     <Content Include="Views\Users\Index.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -683,7 +684,7 @@
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Tenants\_EditTenantModal.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Users\UserList.cshtml" />
+    <Content Include="Views\Users\EditUser.cshtml" />
     <Content Include="Views\Account\_ViewStart.cshtml" />
     <Content Include="Views\Account\_Layout.cshtml" />
     <Content Include="Content\images\Thumbs.db" />

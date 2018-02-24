@@ -64,6 +64,20 @@ namespace MyAbpProject.Web.Controllers
 
             return AbpJson(result);
         }
+        [HttpPost]
+        public async Task<ActionResult> UpdateRole(RoleDto role)
+        {
+            RoleDto result = await _roleAppService.Update(role);
+
+            return AbpJson(result);
+        }
+        [HttpPost]
+        public async Task<ActionResult> DeleteRole(int roleId = 0)
+        {
+            await _roleAppService.Delete(new EntityDto(roleId));
+            return AbpJson(Task.FromResult(true));
+
+        }
 
         public async Task<JsonResult> RolesList()
         {

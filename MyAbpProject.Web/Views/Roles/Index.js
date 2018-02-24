@@ -1,4 +1,4 @@
-﻿layui.use(['form', 'layer', 'jquery','table', 'laytpl'], function () {
+﻿layui.use(['form', 'layer', 'jquery', 'table', 'laytpl'], function () {
     var form = layui.form,
         layer = parent.layer === undefined ? layui.layer : top.layer,
         $ = layui.jquery,
@@ -30,26 +30,31 @@
 
     function addRole(edit) {
         var index = layui.layer.open({
-            title: "添加文章",
+            title: "添加角色",
             type: 2,
-            content: "/roles/editrole?roleId=0",
+            content: "/roles/editrole?roleId=" + (edit != null && edit != undefined ? edit.id : 0),
             success: function (layero, index) {
                 var body = layui.layer.getChildFrame('body', index);
                 if (edit) {
-                    body.find(".newsName").val(edit.newsName);
-                    body.find(".abstract").val(edit.abstract);
-                    body.find(".thumbImg").attr("src", edit.newsImg);
-                    body.find("#news_content").val(edit.content);
-                    body.find(".newsStatus select").val(edit.newsStatus);
-                    body.find(".openness input[name='openness'][title='" + edit.newsLook + "']").prop("checked", "checked");
-                    body.find(".newsTop input[name='newsTop']").prop("checked", edit.newsTop);
+                    body.find("input[name='Name']").val(edit.name);
+                    body.find("input[name='DisplayName']").val(edit.displayName);
+                    if (edit.isStatic) {
+                        body.find("input[name='IsStatic']").attr("checked","checked");
+                    }
+                    body.find("input[name='Description']").val(edit.description);
+                    $("input[name='Permission']").each(function (index, item) {
+                        if (edit.permissions.contains($(item).val())) {
+                            $(item).attr("ckeched", "checked");
+                        }
+                    })
                     form.render();
                 }
-                setTimeout(function () {
-                    layui.layer.tips('点击此处返回文章列表', '.layui-layer-setwin .layui-layer-close', {
-                        tips: 3
-                    });
-                }, 500)
+           
+                //绑定解锁按钮的点击事件
+                body.find('button#close').on('click', function () {
+                    layer.close(index);
+                    location.reload();//刷新
+                });
             }
         })
         layui.layer.full(index);
@@ -62,5 +67,31 @@
     $(".addRoles_btn").click(function () {
         addRole();
     })
+
+    //列表操作
+    table.on('tool(rolesList)', function (obj) {
+        var layEvent = obj.event,
+            data = obj.data;
+
+        if (layEvent === 'edit') { //编辑
+            addRole(data);
+        } else if (layEvent === 'del') { //删除
+            layer.confirm('确定删除此角色？', { icon: 3, title: '提示信息' }, function (index) {
+                $.ajax({
+                    url: "/roles/deleterole",
+                    type: 'POST',//默认以get提交，以get提交如果是中文后台会出现乱码
+                    dataType: 'json',
+                    data: { roleId: data.id },
+                    async: false,
+                    success: function (data) {
+                        tableIns.reload();
+                        layer.close(index);
+                    }
+                })
+            });
+        } else if (layEvent === 'look') { //预览
+            layer.alert("此功能需要前台展示，实际开发中传入对应的必要参数进行文章内容页面访问")
+        }
+    });
 
 })

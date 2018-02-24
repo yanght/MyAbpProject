@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "EditRole";
     var response = Model as MyAbpProject.Web.Models.Roles.EditRoleModalViewModel;
+    var role = response.Role;
     var permissins = response.Permissions;
 }
 @section scripts
@@ -10,6 +11,7 @@
 }
 
 <form class="layui-form" action="">
+    <input type="hidden" name="Id" id="roleId" value="@(role!=null?role.Id:0)" />
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">角色名称</label>
@@ -26,7 +28,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">是否是静态</label>
             <div class="layui-input-block">
-                <input type="checkbox" name="IsStatic" value="true" lay-skin="switch" lay-text="是|否">
+                <input type="checkbox" name="IsStatic"  value="true"  lay-skin="switch" lay-text="是|否">
             </div>
         </div>
     </div>
@@ -45,7 +47,15 @@
                 <div class="layui-input-block">
                     @foreach (var p in permissins)
                     {
-                        <input type="checkbox" name="Permission" value="@p.Name" title="@p.Name" lay-skin="primary">
+                        if (role != null && role.Permissions != null)
+                        {
+
+                            <input type="checkbox" name="Permission" @(role.Permissions.Contains(p.Name) ? "checked" : "") value="@p.Name" title="@p.Name" lay-skin="primary">
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="Permission" value="@p.Name" title="@p.Name" lay-skin="primary">
+                        }
                     }
                 </div>
             </div>
@@ -56,7 +66,7 @@
     <div class="layui-form-item">
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            <button type="button" id="close" class="layui-btn layui-btn-primary">关闭</button>
         </div>
     </div>
 </form>

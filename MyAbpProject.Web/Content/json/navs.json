@@ -38,7 +38,7 @@
     {
       "title": "用户管理",
       "icon": "&#xe612;",
-      "href": "page/user/userList.html",
+      "href": "/users/index",
       "spread": false
     },
     {
