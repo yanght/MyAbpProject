@@ -25,9 +25,9 @@ namespace MyAbpProject.Users
         private readonly IRepository<Role> _roleRepository;
 
         public UserAppService(
-            IRepository<User, long> repository, 
-            UserManager userManager, 
-            IRepository<Role> roleRepository, 
+            IRepository<User, long> repository,
+            UserManager userManager,
+            IRepository<Role> roleRepository,
             RoleManager roleManager)
             : base(repository)
         {
@@ -39,6 +39,7 @@ namespace MyAbpProject.Users
         public override async Task<UserDto> Get(EntityDto<long> input)
         {
             var user = await base.Get(input);
+            if (user == null) return new UserDto();
             var userRoles = await _userManager.GetRolesAsync(user.Id);
             user.Roles = userRoles.Select(ur => ur).ToArray();
             return user;

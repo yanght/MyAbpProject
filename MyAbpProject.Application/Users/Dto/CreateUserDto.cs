@@ -34,5 +34,8 @@ namespace MyAbpProject.Users.Dto
         [StringLength(AbpUserBase.MaxPlainPasswordLength)]
         [DisableAuditing]
         public string Password { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
     }
 }

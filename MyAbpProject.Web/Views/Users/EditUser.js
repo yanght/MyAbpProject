@@ -6,25 +6,44 @@
     form.on("submit(addUser)", function (data) {
         //弹出loading
         var index = top.layer.msg('数据提交中，请稍候', { icon: 16, time: false, shade: 0.8 });
-        // 实际使用时的提交信息
-        // $.post("上传路径",{
-        //     userName : $(".userName").val(),  //登录名
-        //     userEmail : $(".userEmail").val(),  //邮箱
-        //     userSex : data.field.sex,  //性别
-        //     userGrade : data.field.userGrade,  //会员等级
-        //     userStatus : data.field.userStatus,    //用户状态
-        //     newsTime : submitTime,    //添加时间
-        //     userDesc : $(".userDesc").text(),    //用户简介
-        // },function(res){
-        //
-        // })
-        setTimeout(function () {
-            top.layer.close(index);
-            top.layer.msg("用户添加成功！");
-            layer.closeAll("iframe");
-            //刷新父页面
-            parent.location.reload();
-        }, 2000);
+        data.field.RoleNames = [];
+        var rolenamesCheckBoxs = $("input[name='Rolename']:checked");
+        if (rolenamesCheckBoxs) {
+            $.each(rolenamesCheckBoxs, function (index, item) {
+                data.field.RoleNames.push($(item).val());
+            })
+        }
+        var url = '/users/adduser';
+        var userId = $("#userId").val();
+        if (userId > 0) {
+            url = '/users/updateuser'
+        }
+        $.ajax({
+            url: url,
+            type: 'POST',//默认以get提交，以get提交如果是中文后台会出现乱码
+            dataType: 'json',
+            data: data.field,
+            async: false,
+            success: function (data) {
+                if (data.success) {
+                    layer.alert("success", function (index) {
+                        $("#close").click();
+                        layer.close(index);
+                    });
+                } else {
+                    layer.alert(data.error);
+                }
+            }
+        })
+
+
+        //setTimeout(function () {
+        //    top.layer.close(index);
+        //    top.layer.msg("用户添加成功！");
+        //    layer.closeAll("iframe");
+        //    //刷新父页面
+        //    parent.location.reload();
+        //}, 2000);
         return false;
     })
 

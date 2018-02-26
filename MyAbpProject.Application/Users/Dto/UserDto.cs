@@ -36,5 +36,7 @@ namespace MyAbpProject.Users.Dto
         public DateTime CreationTime { get; set; }
 
         public string[] Roles { get; set; }
+
+        public string PhoneNumber { get; set; }
     }
 }

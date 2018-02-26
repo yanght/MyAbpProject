@@ -54,25 +54,34 @@
         var index = layui.layer.open({
             title: "添加用户",
             type: 2,
-            content: "/users/EditUser?roleId=" + (edit != null && edit != undefined ? edit.id : 0),
+            content: "/users/EditUser?userId=" + (edit != null && edit != undefined ? edit.id : 0),
             success: function (layero, index) {
                 var body = layui.layer.getChildFrame('body', index);
                 if (edit) {
-                    body.find(".userName").val(edit.userName);  //登录名
-                    body.find(".userEmail").val(edit.userEmail);  //邮箱
-                    body.find(".userSex input[value=" + edit.userSex + "]").prop("checked", "checked");  //性别
-                    body.find(".userGrade").val(edit.userGrade);  //会员等级
-                    body.find(".userStatus").val(edit.userStatus);    //用户状态
-                    body.find(".userDesc").text(edit.userDesc);    //用户简介
+                    body.find("input[name='UserName']").val(edit.userName);  
+                    body.find("input[name='Name']").val(edit.name);  
+                    body.find("input[name='Surname']").val(edit.surname);  
+                    body.find("input[name='PhoneNumber']").val(edit.phoneNumber);  
+                    body.find("input[name='EmailAddress']").val(edit.emailAddress);    
+                    body.find("input[name='Password']").text(edit.password);    
+                    if (edit.isActive) {
+                        body.find("input[name='IsActive']").attr("checked", "checked");
+                    }
+                    $("input[name='Rolename']").each(function (index, item) {
+                        if (edit.roles.contains($(item).val())) {
+                            $(item).attr("ckeched", "checked");
+                        }
+                    })
                     form.render();
                 }
-                setTimeout(function () {
-                    layui.layer.tips('点击此处返回用户列表', '.layui-layer-setwin .layui-layer-close', {
-                        tips: 3
-                    });
-                }, 500)
+                //绑定解锁按钮的点击事件
+                body.find('button#close').on('click', function () {
+                    layer.close(index);
+                    location.reload();//刷新
+                })
             }
-        })
+        });
+
         layui.layer.full(index);
         //改变窗口大小时，重置弹窗的宽高，防止超出可视区域（如F12调出debug的操作）
         $(window).on("resize", function () {
@@ -83,4 +92,43 @@
     $(".addUser_btn").click(function () {
         addUser();
     })
+
+    //列表操作
+    table.on('tool(userList)', function (obj) {
+        var layEvent = obj.event,
+            data = obj.data;
+
+        if (layEvent === 'edit') { //编辑
+            addUser(data);
+        } else if (layEvent === 'usable') { //启用禁用
+            var _this = $(this),
+                usableText = "是否确定禁用此用户？",
+                btnText = "已禁用";
+            if (_this.text() == "已禁用") {
+                usableText = "是否确定启用此用户？",
+                    btnText = "已启用";
+            }
+            layer.confirm(usableText, {
+                icon: 3,
+                title: '系统提示',
+                cancel: function (index) {
+                    layer.close(index);
+                }
+            }, function (index) {
+                _this.text(btnText);
+                layer.close(index);
+            }, function (index) {
+                layer.close(index);
+            });
+        } else if (layEvent === 'del') { //删除
+            layer.confirm('确定删除此用户？', { icon: 3, title: '提示信息' }, function (index) {
+                // $.get("删除文章接口",{
+                //     newsId : data.newsId  //将需要删除的newsId作为参数传入
+                // },function(data){
+                tableIns.reload();
+                layer.close(index);
+                // })
+            });
+        }
+    });
 })

@@ -65,7 +65,7 @@ namespace MyAbpProject.Web.Controllers
             return View("_EditUserModal", model);
         }
 
-        public async Task<ActionResult> EditUser(long userId = 0)
+        public async Task<ActionResult> EditUser(long userId)
         {
             var user = await _userAppService.Get(new EntityDto<long>(userId));
             var roles = (await _userAppService.GetRoles()).Items;
@@ -81,6 +81,14 @@ namespace MyAbpProject.Web.Controllers
         public async Task<JsonResult> AddUser(Users.Dto.CreateUserDto user)
         {
             UserDto reult = await _userAppService.Create(user);
+
+            return AbpJson(reult);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> UpdateUser(UpdateUserDto user)
+        {
+            UserDto reult = await _userAppService.Update(user);
 
             return AbpJson(reult);
         }
