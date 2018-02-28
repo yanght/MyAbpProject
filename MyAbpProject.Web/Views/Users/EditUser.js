@@ -25,14 +25,13 @@
             data: data.field,
             async: false,
             success: function (data) {
-                if (data.success) {
-                    layer.alert("success", function (index) {
-                        $("#close").click();
-                        layer.close(index);
-                    });
-                } else {
-                    layer.alert(data.error);
-                }
+                layer.alert("success", function (index) {
+                    $("#close").click();
+                    layer.close(index);
+                });
+            },
+            error: function (data) {
+                layer.alert(data.responseJSON.error.message);
             }
         })
 

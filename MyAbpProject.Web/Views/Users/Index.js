@@ -58,18 +58,18 @@
             success: function (layero, index) {
                 var body = layui.layer.getChildFrame('body', index);
                 if (edit) {
-                    body.find("input[name='UserName']").val(edit.userName);  
-                    body.find("input[name='Name']").val(edit.name);  
-                    body.find("input[name='Surname']").val(edit.surname);  
-                    body.find("input[name='PhoneNumber']").val(edit.phoneNumber);  
-                    body.find("input[name='EmailAddress']").val(edit.emailAddress);    
-                    body.find("input[name='Password']").text(edit.password);    
+                    body.find("input[name='UserName']").val(edit.userName);
+                    body.find("input[name='Name']").val(edit.name);
+                    body.find("input[name='Surname']").val(edit.surname);
+                    body.find("input[name='PhoneNumber']").val(edit.phoneNumber);
+                    body.find("input[name='EmailAddress']").val(edit.emailAddress);
+                    body.find("input[name='Password']").text(edit.password);
                     if (edit.isActive) {
                         body.find("input[name='IsActive']").attr("checked", "checked");
                     }
                     $("input[name='Rolename']").each(function (index, item) {
                         if (edit.roles.contains($(item).val())) {
-                            $(item).attr("ckeched", "checked");
+                            $(item).attr("checked", "checked");
                         }
                     })
                     form.render();
@@ -122,12 +122,16 @@
             });
         } else if (layEvent === 'del') { //删除
             layer.confirm('确定删除此用户？', { icon: 3, title: '提示信息' }, function (index) {
-                // $.get("删除文章接口",{
-                //     newsId : data.newsId  //将需要删除的newsId作为参数传入
-                // },function(data){
-                tableIns.reload();
-                layer.close(index);
-                // })
+                $.post("/users/deleteuser", {
+                    userId: data.id  //将需要删除的userId作为参数传入
+                }, function (data) {
+                    if (data.success) {
+                        tableIns.reload();
+                        layer.close(index);
+                    } else {
+                        layer.msg(data.error.message);
+                    }
+                })
             });
         }
     });

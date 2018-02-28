@@ -21,7 +21,7 @@ using MyAbpProject.Web.Models.Users;
 
 namespace MyAbpProject.Web.Controllers
 {
-    //[AbpMvcAuthorize(PermissionNames.Pages_Users)]
+    [AbpMvcAuthorize(PermissionNames.Pages_Users)]
     public class UsersController : MyAbpProjectControllerBase
     {
         private readonly IUserAppService _userAppService;
@@ -76,7 +76,7 @@ namespace MyAbpProject.Web.Controllers
             };
             return View(model);
         }
-
+        [AbpMvcAuthorize(PermissionNames.Pages_Users_Create)]
         [HttpPost]
         public async Task<JsonResult> AddUser(Users.Dto.CreateUserDto user)
         {
@@ -85,12 +85,21 @@ namespace MyAbpProject.Web.Controllers
             return AbpJson(reult);
         }
 
+        [AbpMvcAuthorize(PermissionNames.Pages_Users_Update)]
         [HttpPost]
         public async Task<JsonResult> UpdateUser(UpdateUserDto user)
         {
             UserDto reult = await _userAppService.Update(user);
 
             return AbpJson(reult);
+        }
+
+        [AbpMvcAuthorize(PermissionNames.Pages_Users_Detele)]
+        [HttpPost]
+        public async Task<JsonResult> DeleteUser(long userId)
+        {
+            await _userAppService.Delete(new EntityDto<long>() { Id = userId });
+            return AbpJson(Task.FromResult(true));
         }
     }
 }
