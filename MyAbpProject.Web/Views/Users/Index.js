@@ -11,6 +11,10 @@
         url: '/users/userlist',
         cellMinWidth: 95,
         page: true,
+        request: {
+            pageName: 'SkipCount' //页码的参数名称，默认：page
+            , limitName: 'MaxResultCount' //每页数据量的参数名，默认：limit
+        },
         height: "full-125",
         limits: [10, 15, 20, 25],
         limit: 10,
@@ -91,6 +95,41 @@
 
     $(".addUser_btn").click(function () {
         addUser();
+    })
+
+    //搜索
+    $(".search_btn").on("click", function () {
+
+        table.reload("userListTable", {
+            page: {
+                curr: 1 //重新从第 1 页开始
+            },
+            where: {
+                UserName: $("input[name='UserName']").val()  //搜索的关键字
+            }
+        })
+
+    });
+
+    //批量删除
+    $(".delAll_btn").click(function () {
+        var checkStatus = table.checkStatus('userListTable'),
+            data = checkStatus.data,
+            userIds = [];
+        if (data.length > 0) {
+            for (var i in data) {
+                userIds.push(data[i].id);
+            }
+            layer.confirm('确定删除选中的用户？', { icon: 3, title: '提示信息' }, function (index) {
+
+                alert(userIds);
+
+                tableIns.reload();
+                layer.close(index);
+            })
+        } else {
+            layer.msg("请选择需要删除的用户");
+        }
     })
 
     //列表操作

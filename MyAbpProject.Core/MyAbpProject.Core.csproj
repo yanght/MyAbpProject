@@ -259,6 +259,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authorization\UserAuthorizationProvider.cs" />
+    <Compile Include="Authorization\PermissionDefined.cs" />
     <Compile Include="IRepositories\IDemoRepository.cs" />
     <Compile Include="IRepositories\IRechargeRepository.cs" />
     <Compile Include="MyAbpProjectConsts.cs" />

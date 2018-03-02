@@ -34,7 +34,7 @@ namespace MyAbpProject.Web
 
             //Enable database based localization
             Configuration.Modules.Zero().LanguageManagement.EnableDbLocalization();
-
+            
             //Configure navigation/menu
             Configuration.Navigation.Providers.Add<MyAbpProjectNavigationProvider>();
 

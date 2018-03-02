@@ -57,6 +57,12 @@ namespace MyAbpProject.Web.Controllers
             return View(model);
         }
 
+        public async Task<ActionResult> GetPermissions()
+        {
+            var permissions = (await _roleAppService.GetAllPermissions()).Items;
+            return AbpJson(permissions, behavior: JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public async Task<ActionResult> AddRole(CreateRoleDto role)
         {

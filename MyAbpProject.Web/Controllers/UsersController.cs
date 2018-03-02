@@ -46,11 +46,15 @@ namespace MyAbpProject.Web.Controllers
             return View(model);
         }
 
-        public async Task<JsonResult> UserList()
+        public JsonResult UserList(GetUsersInput input)
         {
-            var users = (await _userAppService.GetAll(new PagedResultRequestDto { MaxResultCount = int.MaxValue })).Items; //Paging not implemented yet
+            //var users = (await _userAppService.GetAll(new PagedResultRequestDto { MaxResultCount = int.MaxValue })).Items; //Paging not implemented yet
 
-            return AbpJson(new { code = 0, msg = string.Empty, count = users.Count, data = users }, null, null, JsonRequestBehavior.AllowGet, false);
+            input.SkipCount = (input.SkipCount - 1) * input.MaxResultCount;
+
+            var result = _userAppService.GetUserByPage(input);
+
+            return AbpJson(new { code = 0, msg = string.Empty, count = result.TotalCount, data = result.Items }, wrapResult: false, behavior: JsonRequestBehavior.AllowGet);
         }
 
         public async Task<ActionResult> EditUserModal(long userId)
@@ -76,6 +80,7 @@ namespace MyAbpProject.Web.Controllers
             };
             return View(model);
         }
+
         [AbpMvcAuthorize(PermissionNames.Pages_Users_Create)]
         [HttpPost]
         public async Task<JsonResult> AddUser(Users.Dto.CreateUserDto user)
@@ -85,7 +90,7 @@ namespace MyAbpProject.Web.Controllers
             return AbpJson(reult);
         }
 
-        [AbpMvcAuthorize(PermissionNames.Pages_Users_Update)]
+       
         [HttpPost]
         public async Task<JsonResult> UpdateUser(UpdateUserDto user)
         {

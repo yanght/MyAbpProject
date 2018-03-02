@@ -1,19 +1,30 @@
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
-using Abp.Authorization.Users;
+using Abp.AutoMapper;
 using Abp.Domain.Repositories;
-using Abp.IdentityFramework;
+using Abp.Extensions;
+using Abp.Linq.Extensions;
+using Abp.Net.Mail.Smtp;
+using Abp.Notifications;
+using Abp.Runtime.Session;
+using Abp.Threading;
+using Abp.Timing;
+using AutoMapper;
 using MyAbpProject.Authorization;
 using MyAbpProject.Authorization.Roles;
 using MyAbpProject.Authorization.Users;
 using MyAbpProject.Roles.Dto;
 using MyAbpProject.Users.Dto;
 using Microsoft.AspNet.Identity;
+using System.Collections.ObjectModel;
+using Abp.Authorization.Users;
+using Abp.IdentityFramework;
 
 namespace MyAbpProject.Users
 {
@@ -23,6 +34,7 @@ namespace MyAbpProject.Users
         private readonly UserManager _userManager;
         private readonly RoleManager _roleManager;
         private readonly IRepository<Role> _roleRepository;
+        private readonly IRepository<User, long> _userRepository;
 
         public UserAppService(
             IRepository<User, long> repository,
@@ -34,6 +46,7 @@ namespace MyAbpProject.Users
             _userManager = userManager;
             _roleRepository = roleRepository;
             _roleManager = roleManager;
+            _userRepository = repository;
         }
 
         public override async Task<UserDto> Get(EntityDto<long> input)
@@ -44,6 +57,27 @@ namespace MyAbpProject.Users
             user.Roles = userRoles.Select(ur => ur).ToArray();
             return user;
         }
+
+        public PagedResultDto<UserDto> GetUserByPage(GetUsersInput input)
+        {
+             var query = _userRepository.GetAll()
+                .WhereIf(!input.UserName.IsNullOrEmpty(), t => t.UserName == input.UserName);
+
+            //排序
+            query = !string.IsNullOrEmpty(input.Sorting) ? query.OrderBy(input.Sorting) : query.OrderByDescending(t => t.CreationTime);
+
+            //获取总数
+            var tasksCount = query.Count();
+            //默认的分页方式
+            //var taskList = query.Skip(input.SkipCount).Take(input.MaxResultCount).ToList();
+
+            //ABP提供了扩展方法PageBy分页方式
+            var userList = query.PageBy(input).ToList();
+
+            return new PagedResultDto<UserDto>(tasksCount, userList.MapTo<List<UserDto>>());
+
+        }
+
 
         public override async Task<UserDto> Create(CreateUserDto input)
         {
@@ -68,6 +102,7 @@ namespace MyAbpProject.Users
             return MapToEntityDto(user);
         }
 
+        [AbpAuthorize(PermissionNames.Pages_Users_Update)]
         public override async Task<UserDto> Update(UpdateUserDto input)
         {
             CheckUpdatePermission();

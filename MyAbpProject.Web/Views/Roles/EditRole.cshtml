@@ -28,7 +28,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">是否是静态</label>
             <div class="layui-input-block">
-                <input type="checkbox" name="IsStatic"  value="true"  lay-skin="switch" lay-text="是|否">
+                <input type="checkbox" name="IsStatic" value="true" lay-skin="switch" lay-text="是|否">
             </div>
         </div>
     </div>
@@ -39,30 +39,128 @@
             <input placeholder="请输入内容摘要" name="Description" class="layui-input">
         </div>
     </div>
+    <div class="layui-form-item">
 
-    <fieldset class="layui-elem-field">
-        <legend>权限</legend>
-        <div class="layui-field-box">
-            <div class="layui-form-item">
-                <div class="layui-input-block">
-                    @foreach (var p in permissins)
+        <fieldset class="layui-elem-field">
+            <legend>权限</legend>
+            <div class="layui-input-inline">
+                @if (role != null && role.Permissions != null)
+                {
+                    foreach (var permission in permissins)
                     {
-                        if (role != null && role.Permissions != null)
-                        {
+                        if (permission.Name.Split('.').Count() == 2)
+                        {<fieldset class="layui-elem-field">
+                                <legend>
+                                    <input type="checkbox" name="Permission" @(role.Permissions.Contains(permission.Name) ? "checked" : "") value="@permission.Name" title="@permission.DisplayName" lay-skin="primary">
 
-                            <input type="checkbox" name="Permission" @(role.Permissions.Contains(p.Name) ? "checked" : "") value="@p.Name" title="@p.Name" lay-skin="primary">
-                        }
-                        else
-                        {
-                            <input type="checkbox" name="Permission" value="@p.Name" title="@p.Name" lay-skin="primary">
+                                </legend>
+                                <div class="layui-field-box">
+                                    @foreach (var p in permissins)
+                                    {
+                                        if (p.Name.Contains(permission.Name)&&p.Name!=permission.Name)
+                                        {
+                                            <input type="checkbox" name="Permission" @(role.Permissions.Contains(p.Name) ? "checked" : "") value="@p.Name" title="@p.DisplayName" lay-skin="primary">
+
+                                        }
+                                    }
+                                </div>
+                            </fieldset>
                         }
                     }
-                </div>
+                }
+                @*<div class="layui-inline">
+                        <fieldset class="layui-elem-field">
+                            <legend><input type="checkbox" value="1" data-parentids="1," title="系统管理" lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>系统管理</span><i class="layui-icon"></i></div></legend>
+                            <div class="layui-field-box">
+                                <ul style="padding: 0 15px">
+                                    <li style="margin-top: 5px;margin-left: 1.5em">
+                                        <input type="checkbox" title="系统字典管理" value="9" data-parentids="1,9," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>系统字典管理</span><i class="layui-icon"></i></div>
+                                        <ul>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="删除字典" value="54" data-parentids="1,9,54," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>删除字典</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="编辑字典类型" value="19" data-parentids="1,9,19," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>编辑字典类型</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="编辑字典" value="18" data-parentids="1,9,18," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>编辑字典</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="新增字典" value="17" data-parentids="1,9,17," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>新增字典</span><i class="layui-icon"></i></div></li>
+                                        </ul>
+                                    </li>
+                                    <li style="margin-top: 5px;margin-left: 1.5em">
+                                        <input type="checkbox" title="数据库管理" value="8" data-parentids="1,8," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>数据库管理</span><i class="layui-icon"></i></div>
+                                        <ul>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="下载源码" value="34" data-parentids="1,8,34," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>下载源码</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="删除数据库" value="33" data-parentids="1,8,33," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>删除数据库</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="删除数据库字段" value="32" data-parentids="1,8,32," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>删除数据库字段</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="编辑数据库字段" value="31" data-parentids="1,8,31," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>编辑数据库字段</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="新增数据库字段" value="30" data-parentids="1,8,30," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>新增数据库字段</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="编辑数据库" value="29" data-parentids="1,8,29," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>编辑数据库</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="数据库新增" value="28" data-parentids="1,8,28," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>数据库新增</span><i class="layui-icon"></i></div></li>
+                                        </ul>
+                                    </li>
+                                    <li style="margin-top: 5px;margin-left: 1.5em">
+                                        <input type="checkbox" title="网站基本信息" value="7" data-parentids="1,7," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>网站基本信息</span><i class="layui-icon"></i></div>
+                                        <ul>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="编辑系统信息" value="27" data-parentids="1,7,27," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>编辑系统信息</span><i class="layui-icon"></i></div></li>
+                                        </ul>
+                                    </li>
+                                    <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="系统日志管理" value="6" data-parentids="1,6," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>系统日志管理</span><i class="layui-icon"></i></div></li>
+                                    <li style="margin-top: 5px;margin-left: 1.5em">
+                                        <input type="checkbox" title="系统资源管理" value="5" data-parentids="1,5," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>系统资源管理</span><i class="layui-icon"></i></div>
+                                        <ul>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="删除系统资源" value="23" data-parentids="1,5,23," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>删除系统资源</span><i class="layui-icon"></i></div></li>
+                                        </ul>
+                                    </li>
+                                    <li style="margin-top: 5px;margin-left: 1.5em">
+                                        <input type="checkbox" title="系统权限管理" value="4" data-parentids="1,4," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>系统权限管理</span><i class="layui-icon"></i></div>
+                                        <ul>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="删除系统权限" value="22" data-parentids="1,4,22," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>删除系统权限</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="编辑系统权限" value="21" data-parentids="1,4,21," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>编辑系统权限</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="新增系统权限" value="20" data-parentids="1,4,20," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>新增系统权限</span><i class="layui-icon"></i></div></li>
+                                        </ul>
+                                    </li>
+                                    <li style="margin-top: 5px;margin-left: 1.5em">
+                                        <input type="checkbox" title="系统角色管理" value="3" data-parentids="1,3," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>系统角色管理</span><i class="layui-icon"></i></div>
+                                        <ul>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="删除角色" value="26" data-parentids="1,3,26," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>删除角色</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="编辑菜单权限" value="25" data-parentids="1,3,25," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>编辑菜单权限</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="新增系统角色" value="24" data-parentids="1,3,24," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>新增系统角色</span><i class="layui-icon"></i></div></li>
+                                        </ul>
+                                    </li>
+                                    <li style="margin-top: 5px;margin-left: 1.5em">
+                                        <input type="checkbox" title="系统用户管理" value="2" data-parentids="1,2," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>系统用户管理</span><i class="layui-icon"></i></div>
+                                        <ul>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="修改密码" value="53" data-parentids="1,2,53," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>修改密码</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="删除系统用户" value="37" data-parentids="1,2,37," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>删除系统用户</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="编辑系统用户" value="36" data-parentids="1,2,36," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>编辑系统用户</span><i class="layui-icon"></i></div></li>
+                                            <li style="margin-top: 5px;margin-left: 1.5em"><input type="checkbox" title="新增系统用户" value="35" data-parentids="1,2,35," lay-filter="roleMenu" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin=""><span>新增系统用户</span><i class="layui-icon"></i></div></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </fieldset>
+                    </div>*@
+
             </div>
 
-        </div>
-    </fieldset>
+            @*<div class="layui-field-box">
+                                <div class="layui-form-item">
+                                    <div class="layui-input-block">
+                                        @foreach (var p in permissins)
+                                {
+                                    if (role != null && role.Permissions != null)
+                                    {
 
+                                        <input type="checkbox" name="Permission" @(role.Permissions.Contains(p.Name) ? "checked" : "") value="@p.Name" title="@p.DisplayName" lay-skin="primary">
+                            }
+                            else
+                            {
+                                <input type="checkbox" name="Permission" value="@p.Name" title="@p.DisplayName" lay-skin="primary">
+                    }
+                }
+                                    </div>
+                                </div>
+
+                            </div>*@
+
+        </fieldset>
+    </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>

@@ -295,8 +295,13 @@
     <Compile Include="Migrations\201802060654370_add-recharge-entity.Designer.cs">
       <DependentUpon>201802060654370_add-recharge-entity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803020545094_add-permissondefined.cs" />
+    <Compile Include="Migrations\201803020545094_add-permissondefined.Designer.cs">
+      <DependentUpon>201803020545094_add-permissondefined.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SeedData\DefaultPermissionDefinedCreator.cs" />
     <Compile Include="Migrations\SeedData\DefaultRechargeFieldCreateor.cs" />
     <Compile Include="MyAbpProjectDataModule.cs" />
     <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
@@ -327,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802060654370_add-recharge-entity.resx">
       <DependentUpon>201802060654370_add-recharge-entity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803020545094_add-permissondefined.resx">
+      <DependentUpon>201803020545094_add-permissondefined.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

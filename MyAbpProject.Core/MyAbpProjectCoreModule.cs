@@ -41,6 +41,9 @@ namespace MyAbpProject
             AppRoleConfig.Configure(Configuration.Modules.Zero().RoleManagement);
 
             Configuration.Authorization.Providers.Add<MyAbpProjectAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<UserAuthorizationProvider>();
+
+
 
             Configuration.Settings.Providers.Add<AppSettingProvider>();
             
