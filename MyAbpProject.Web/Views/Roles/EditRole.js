@@ -7,7 +7,7 @@
         var url = '/roles/addrole';
         var roleId = $("#roleId").val();
         data.field.Permissions = [];
-       
+
         var premissionCheckBoxs = $("input[name='Permission']:checked");
         if (premissionCheckBoxs) {
             $.each(premissionCheckBoxs, function (index, item) {
@@ -37,5 +37,13 @@
         })
 
         return false;
+    })
+
+    form.on('checkbox(roleMenu)', function (data) {
+
+
+        console.log(data);
+
+        form.render('checkbox');
     })
 });

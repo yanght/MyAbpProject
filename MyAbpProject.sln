@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAbpProject.Migrator", "To
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAbpProject.WebApi", "MyAbpProject.WebApi\MyAbpProject.WebApi.csproj", "{5EB52D3D-09FD-463A-B02A-8D9856BD3724}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{B32D13B2-AEA8-48DA-BB2E-23F2A3038C88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{5EB52D3D-09FD-463A-B02A-8D9856BD3724}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EB52D3D-09FD-463A-B02A-8D9856BD3724}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EB52D3D-09FD-463A-B02A-8D9856BD3724}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B32D13B2-AEA8-48DA-BB2E-23F2A3038C88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B32D13B2-AEA8-48DA-BB2E-23F2A3038C88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B32D13B2-AEA8-48DA-BB2E-23F2A3038C88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B32D13B2-AEA8-48DA-BB2E-23F2A3038C88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +75,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C602C47E-F379-40A3-A146-4F19105B3491} = {7E85C7E5-70BD-4C9D-B052-D95955F46609}
 		{6F98C2F2-898A-421B-BE3D-68FE69EC0646} = {7408541C-F99C-4197-B203-136115BD1CB9}
+		{B32D13B2-AEA8-48DA-BB2E-23F2A3038C88} = {7E85C7E5-70BD-4C9D-B052-D95955F46609}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92CC8E88-0A7A-43D7-82AF-59D2986A95DE}
