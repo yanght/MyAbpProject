@@ -12,14 +12,16 @@ namespace MyAbpProject.Authorization
 {
     public class MyAbpProjectAuthorizationProvider : AuthorizationProvider
     {
-       
+
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
-            
-            context.CreatePermission(PermissionNames.Pages_Roles, L("Roles"));
-            context.CreatePermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
+            // context.CreatePermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
 
 
+            var recharges = context.CreatePermission("Pages.Recharge",L("Permission_Recharge"));
+            recharges.CreateChildPermission("Pages.Recharge.Create", L("Permission_Recharge_Create"));
+            recharges.CreateChildPermission("Pages.Recharge.Update", L("Permission_Recharge_Update"));
+            recharges.CreateChildPermission("Pages.Recharge.Delete", L("Permission_Recharge_Delete"));
         }
 
         private static ILocalizableString L(string name)

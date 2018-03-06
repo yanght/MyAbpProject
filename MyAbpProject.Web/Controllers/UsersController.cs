@@ -90,7 +90,7 @@ namespace MyAbpProject.Web.Controllers
             return AbpJson(reult);
         }
 
-       
+        [AbpMvcAuthorize(PermissionNames.Pages_Roles_Update)]
         [HttpPost]
         public async Task<JsonResult> UpdateUser(UpdateUserDto user)
         {

@@ -102,7 +102,6 @@ namespace MyAbpProject.Users
             return MapToEntityDto(user);
         }
 
-        [AbpAuthorize(PermissionNames.Pages_Users_Update)]
         public override async Task<UserDto> Update(UpdateUserDto input)
         {
             CheckUpdatePermission();

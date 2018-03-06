@@ -46,6 +46,7 @@ namespace MyAbpProject
                     dtomap.CreateMapping(cfg);
 
             });
+
         }
     }
 }

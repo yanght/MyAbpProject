@@ -40,13 +40,16 @@ namespace MyAbpProject
 
             AppRoleConfig.Configure(Configuration.Modules.Zero().RoleManagement);
 
+            #region [ register authorization provider ]
+
             Configuration.Authorization.Providers.Add<MyAbpProjectAuthorizationProvider>();
             Configuration.Authorization.Providers.Add<UserAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<RoleAuthorizationProvider>();
 
-
+            #endregion
 
             Configuration.Settings.Providers.Add<AppSettingProvider>();
-            
+
 
         }
 

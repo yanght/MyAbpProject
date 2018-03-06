@@ -259,6 +259,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authorization\RoleAuthorizationProvider.cs" />
     <Compile Include="Authorization\UserAuthorizationProvider.cs" />
     <Compile Include="Authorization\PermissionDefined.cs" />
     <Compile Include="IRepositories\IDemoRepository.cs" />
@@ -297,9 +298,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Localization\Source\MyAbpProject-zh-CN.xml" />
+    <EmbeddedResource Include="Localization\Source\MyAbpProject-zh-CN.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Localization\Source\MyAbpProject-tr.xml" />
-    <EmbeddedResource Include="Localization\Source\MyAbpProject.xml" />
+    <EmbeddedResource Include="Localization\Source\MyAbpProject.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Localization\Source\MyAbpProject-lt.xml" />
   </ItemGroup>
   <ItemGroup>

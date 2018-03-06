@@ -60,5 +60,16 @@
     <text name="Permission_Users_Create" value="创建用户" />
     <text name="Permission_Users_Update" value="修改用户" />
     <text name="Permission_Users_Delete" value="删除用户" />
+
+    <text name="Permission_Roles" value="角色管理" />
+    <text name="Permission_Roles_Create" value="创建角色" />
+    <text name="Permission_Roles_Update" value="修改角色" />
+    <text name="Permission_Roles_Delete" value="删除角色" />
+
+    <text name="Permission_Recharge" value="充值档位管理" />
+    <text name="Permission_Recharge_Create" value="添加充值档位" />
+    <text name="Permission_Recharge_Update" value="修改充值档位" />
+    <text name="Permission_Recharge_Delete" value="删除充值档位" />
+    
   </texts>
 </localizationDictionary>

@@ -63,6 +63,7 @@ namespace MyAbpProject.Web.Controllers
             return AbpJson(permissions, behavior: JsonRequestBehavior.AllowGet);
         }
 
+        [AbpMvcAuthorize(PermissionNames.Pages_Roles_Create)]
         [HttpPost]
         public async Task<ActionResult> AddRole(CreateRoleDto role)
         {
@@ -70,6 +71,7 @@ namespace MyAbpProject.Web.Controllers
 
             return AbpJson(result);
         }
+        [AbpMvcAuthorize(PermissionNames.Pages_Roles_Update)]
         [HttpPost]
         public async Task<ActionResult> UpdateRole(RoleDto role)
         {
@@ -77,6 +79,8 @@ namespace MyAbpProject.Web.Controllers
 
             return AbpJson(result);
         }
+
+        [AbpMvcAuthorize(PermissionNames.Pages_Roles_Delete)]
         [HttpPost]
         public async Task<ActionResult> DeleteRole(int roleId = 0)
         {

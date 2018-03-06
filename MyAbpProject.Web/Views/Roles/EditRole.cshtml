@@ -44,29 +44,26 @@
         <fieldset class="layui-elem-field">
             <legend>权限</legend>
 
-            @if (role != null && role.Permissions != null)
+            @foreach (var permission in permissions)
             {
-                foreach (var permission in permissions)
-                {
-                    if (permission.Name.Split('.').Count() == 2)
-                    {<div class="layui-input-inline">
-                            <fieldset class="layui-elem-field">
-                                <legend>
-                                    <input type="checkbox" name="Permission" @(role.Permissions.Contains(permission.Name) ? "checked" : "") value="@permission.Name" title="@permission.DisplayName" lay-skin="primary" lay-filter="roleMenu">
-                                </legend>
-                                <div class="layui-field-box">
-                                    @foreach (var p in permissions)
+                if (permission.Name.Split('.').Count() == 2)
+                {<div class="layui-input-inline">
+                        <fieldset class="layui-elem-field">
+                            <legend>
+                                <input type="checkbox" name="Permission" @(role != null && role.Permissions.Contains(permission.Name) ? "checked" : "") value="@permission.Name" title="@permission.DisplayName" lay-skin="primary" lay-filter="roleMenu">
+                            </legend>
+                            <div class="layui-field-box">
+                                @foreach (var p in permissions)
+                                {
+                                    if (p.Name.Contains(permission.Name) && p.Name != permission.Name)
                                     {
-                                        if (p.Name.Contains(permission.Name) && p.Name != permission.Name)
-                                        {
-                                            <input type="checkbox" name="Permission" @(role.Permissions.Contains(p.Name) ? "checked" : "") data-parentid="" value="@p.Name" title="@p.DisplayName" lay-skin="primary" lay-filter="roleMenu">
+                                        <input type="checkbox" name="Permission" @(role != null && role.Permissions.Contains(p.Name) ? "checked" : "") data-parentid="" value="@p.Name" title="@p.DisplayName" lay-skin="primary" lay-filter="roleMenu">
 
-                                        }
                                     }
-                                </div>
-                            </fieldset>
-                        </div>
-                    }
+                                }
+                            </div>
+                        </fieldset>
+                    </div>
                 }
             }
         </fieldset>
