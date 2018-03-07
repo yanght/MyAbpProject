@@ -45,6 +45,17 @@ namespace MyAbpProject.Web.Controllers
             return PartialView("_SideBarNav", model);
         }
 
+        public JsonResult MainNav(string activeMenu = "")
+        {
+            var model = new SideBarNavViewModel
+            {
+                MainMenu = AsyncHelper.RunSync(() => _userNavigationManager.GetMenuAsync("MainMenu", AbpSession.ToUserIdentifier())),
+                ActiveMenuItemName = activeMenu
+            };
+
+            return AbpJson(model, behavior: JsonRequestBehavior.AllowGet);
+        }
+
         [ChildActionOnly]
         public PartialViewResult SideBarUserArea()
         {

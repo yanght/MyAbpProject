@@ -15,7 +15,7 @@ namespace MyAbpProject.Authorization
 
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
-            // context.CreatePermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
+             context.CreatePermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
 
 
             var recharges = context.CreatePermission("Pages.Recharge",L("Permission_Recharge"));

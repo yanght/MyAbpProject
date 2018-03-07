@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     Layout = null;
     MyAbpProject.Sessions.Dto.GetCurrentLoginInformationsOutput output = Model as MyAbpProject.Sessions.Dto.GetCurrentLoginInformationsOutput;
     var user = output.User;
@@ -79,9 +79,9 @@
         <!-- 左侧导航 -->
         <div class="layui-side layui-bg-black">
             @*<div class="user-photo">
-                <a class="img" title="我的头像"><img src="/content/images/face.jpg" class="userAvatar"></a>
-                <p>你好！<span class="userName">@(user.UserName)</span>, 欢迎登录</p>
-            </div>*@
+                    <a class="img" title="我的头像"><img src="/content/images/face.jpg" class="userAvatar"></a>
+                    <p>你好！<span class="userName">@(user.UserName)</span>, 欢迎登录</p>
+                </div>*@
             <!-- 搜索 -->
             <div class="layui-form component">
                 <select name="search" id="search" lay-search lay-filter="searchPage">
@@ -91,13 +91,14 @@
                 </select>
                 <i class="layui-icon">&#xe615;</i>
             </div>
-            <div class="navBar layui-side-scroll" id="navBar">
-                <ul class="layui-nav layui-nav-tree">
-                    <li class="layui-nav-item layui-this">
-                        <a href="javascript:;" data-url="/content/page/main.html"><i class="layui-icon" data-icon=""></i><cite>后台首页</cite></a>
-                    </li>
-                </ul>
-            </div>
+            @*<div class="navBar layui-side-scroll" id="navBar">
+                    <ul class="layui-nav layui-nav-tree">
+                        <li class="layui-nav-item layui-this">
+                            <a href="javascript:;" data-url="/content/page/main.html"><i class="layui-icon" data-icon=""></i><cite>后台首页</cite></a>
+                        </li>
+                    </ul>
+                </div>*@
+            @{Html.RenderAction("SideBarNav", "layout");}
         </div>
         <!-- 右侧内容 -->
         <div class="layui-body layui-form">

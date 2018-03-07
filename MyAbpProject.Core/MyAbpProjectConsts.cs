@@ -4,6 +4,8 @@
     {
         public const string LocalizationSourceName = "MyAbpProject-zh-CN";
 
-        public const bool MultiTenancyEnabled = true;
+        public const bool MultiTenancyEnabled = false;
+
+        public const string CultureName = "zh-CN";
     }
 }

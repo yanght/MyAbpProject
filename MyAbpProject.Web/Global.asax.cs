@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Threading;
 using Abp.Castle.Logging.Log4Net;
 using Abp.Web;
@@ -17,5 +18,6 @@ namespace MyAbpProject.Web
             
             base.Application_Start(sender, e);
         }
+
     }
 }
