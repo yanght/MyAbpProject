@@ -323,6 +323,12 @@
     <Compile Include="Roles\Dto\PermissionDto.cs" />
     <Compile Include="Roles\Dto\RoleDto.cs" />
     <Compile Include="Roles\IRoleAppService.cs" />
+    <Compile Include="Systems\Dto\AuditLogDto.cs" />
+    <Compile Include="Systems\Dto\GetAuditLogsInput.cs" />
+    <Compile Include="Systems\Dto\GetAuditLogsOutput.cs" />
+    <Compile Include="Systems\IAuditedRepository.cs" />
+    <Compile Include="Systems\ISystemAppService.cs" />
+    <Compile Include="Systems\SystemAppService.cs" />
     <Compile Include="Users\Dto\CreateUserDto.cs" />
     <Compile Include="Users\Dto\GetUsersInput.cs" />
     <Compile Include="Users\Dto\UpdateUserDto.cs" />

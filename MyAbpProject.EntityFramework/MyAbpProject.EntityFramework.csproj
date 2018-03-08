@@ -278,6 +278,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\MyAbpProjectDbContext.cs" />
+    <Compile Include="EntityFramework\Repositories\AuditedRepository.cs" />
     <Compile Include="EntityFramework\Repositories\DemoRepository.cs" />
     <Compile Include="EntityFramework\Repositories\MyAbpProjectDapperRepositoryBase.cs" />
     <Compile Include="EntityFramework\Repositories\MyAbpProjectRepositoryBase.cs" />
@@ -318,6 +319,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MyAbpProject.Application\MyAbpProject.Application.csproj">
+      <Project>{EDF5D964-4C0F-4F19-B674-58A38A5E5401}</Project>
+      <Name>MyAbpProject.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyAbpProject.Core\MyAbpProject.Core.csproj">
       <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
       <Name>MyAbpProject.Core</Name>

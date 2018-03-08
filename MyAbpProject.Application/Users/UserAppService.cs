@@ -60,8 +60,8 @@ namespace MyAbpProject.Users
 
         public PagedResultDto<UserDto> GetUserByPage(GetUsersInput input)
         {
-             var query = _userRepository.GetAll()
-                .WhereIf(!input.UserName.IsNullOrEmpty(), t => t.UserName == input.UserName);
+            var query = _userRepository.GetAll()
+               .WhereIf(!input.UserName.IsNullOrEmpty(), t => t.UserName == input.UserName);
 
             //ÅÅÐò
             query = !string.IsNullOrEmpty(input.Sorting) ? query.OrderBy(input.Sorting) : query.OrderByDescending(t => t.CreationTime);
@@ -118,6 +118,15 @@ namespace MyAbpProject.Users
             }
 
             return await Get(input);
+        }
+
+        public async Task<IdentityResult> ChangeUserStatus(EntityDto<long> input)
+        {
+            User user = await _userManager.GetUserByIdAsync(input.Id);
+
+            user.IsActive = !user.IsActive;
+
+            return await _userManager.UpdateAsync(user);
         }
 
         public override async Task Delete(EntityDto<long> input)

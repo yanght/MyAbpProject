@@ -11,16 +11,22 @@
 
     //登录按钮
     form.on("submit(login)", function (data) {
-        $(this).text("登录中...").attr("disabled", "disabled").addClass("layui-disabled");
+        var _this = $(this);
+        $.ajax({
+            url: "/account/login",
+            type: 'POST',//默认以get提交，以get提交如果是中文后台会出现乱码
+            dataType: 'json',
+            data: data.field,
+            async: false,
+            success: function (data) {
+                window.location.href = data.targetUrl;
+            },
+            error: function (data) {
+                layer.alert(data.responseJSON.error.message);
 
-        $.post("/account/login", data.field, function (resp) {
-            if (resp.success) {
-                window.location.href = resp.targetUrl;
-            } else {
-                layer.alert(resp.error);
-                $(this).text("登录").attr("disabled", "").removeClass("layui-disabled");
             }
-        });
+        })
+
         return false;
     })
 

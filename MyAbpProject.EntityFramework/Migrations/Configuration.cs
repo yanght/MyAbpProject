@@ -29,7 +29,7 @@ namespace MyAbpProject.Migrations
                 new DefaultTenantCreator(context).Create();
                 new TenantRoleAndUserBuilder(context, 1).Create();
                 new DefaultRechargeFieldCreateor(context).Create();
-                new DefaultPermissionDefinedCreator(context).Create();
+               // new DefaultPermissionDefinedCreator(context).Create();
             }
             else
             {

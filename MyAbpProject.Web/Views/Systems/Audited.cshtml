@@ -1,10 +1,12 @@
 ﻿@using Abp.Web.Mvc.Extensions
 @{
+    /**/
+
     ViewBag.Title = "Index";
 }
 @section Scripts
 {
-    @Html.IncludeScript("~/Views/Users/Index.js")
+    @Html.IncludeScript("~/Views/Systems/Audited.js")
 }
 <form class="layui-form">
     <blockquote class="layui-elem-quote quoteBox">
@@ -23,16 +25,12 @@
             </div>
         </form>
     </blockquote>
-    <table id="userList" lay-filter="userList"></table>
+    <table id="auditLogs" lay-filter="auditLogs"></table>
     <!--操作-->
-    <script type="text/html" id="userListBar">
+    <script type="text/html" id="auditLogsBar">
         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
 
         <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
     </script>
 
-    <script type="text/html" id="activeSwitchTpl">
-        <!-- 这里的 checked 的状态只是演示 -->
-        <input type="checkbox" name="isActive" value="{{d.id}}" lay-skin="switch" lay-text="启用|禁用" lay-filter="isActive" {{ d.isActive == 1 ? 'checked' : '' }}>
-    </script>
 </form>

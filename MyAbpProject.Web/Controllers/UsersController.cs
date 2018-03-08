@@ -99,6 +99,15 @@ namespace MyAbpProject.Web.Controllers
             return AbpJson(reult);
         }
 
+        [AbpMvcAuthorize(PermissionNames.Pages_Users_Update)]
+        [HttpPost]
+        public async Task<JsonResult> ChangeUserStatus(long userId)
+        {
+            await _userAppService.ChangeUserStatus(new EntityDto<long>() { Id = userId });
+
+            return AbpJson(Task.FromResult(true));
+        }
+
         [AbpMvcAuthorize(PermissionNames.Pages_Users_Detele)]
         [HttpPost]
         public async Task<JsonResult> DeleteUser(long userId)

@@ -27,27 +27,8 @@
                     return '<a class="layui-blue" href="mailto:' + d.emailAddress + '">' + d.emailAddress + '</a>';
                 }
             },
-            //{ field: 'userSex', title: '用户性别', align: 'center' },
-            //{
-            //    field: 'userStatus', title: '用户状态', align: 'center', templet: function (d) {
-            //        return d.userStatus == "0" ? "正常使用" : "限制使用";
-            //    }
-            //},
-            //{
-            //    field: 'userGrade', title: '用户等级', align: 'center', templet: function (d) {
-            //        if (d.userGrade == "0") {
-            //            return "注册会员";
-            //        } else if (d.userGrade == "1") {
-            //            return "中级会员";
-            //        } else if (d.userGrade == "2") {
-            //            return "高级会员";
-            //        } else if (d.userGrade == "3") {
-            //            return "钻石会员";
-            //        } else if (d.userGrade == "4") {
-            //            return "超级会员";
-            //        }
-            //    }
-            //},
+            { field: 'phoneNumber', title: '手机', align: 'center' },
+            { field: 'isActive', title: '用户状态', align: 'center', templet: '#activeSwitchTpl', unresize: true },
             { field: 'lastLoginTime', title: '最后登录时间', align: 'center', minWidth: 150 },
             { title: '操作', minWidth: 175, templet: '#userListBar', fixed: "right", align: "center" }
         ]]
@@ -139,26 +120,6 @@
 
         if (layEvent === 'edit') { //编辑
             addUser(data);
-        } else if (layEvent === 'usable') { //启用禁用
-            var _this = $(this),
-                usableText = "是否确定禁用此用户？",
-                btnText = "已禁用";
-            if (_this.text() == "已禁用") {
-                usableText = "是否确定启用此用户？",
-                    btnText = "已启用";
-            }
-            layer.confirm(usableText, {
-                icon: 3,
-                title: '系统提示',
-                cancel: function (index) {
-                    layer.close(index);
-                }
-            }, function (index) {
-                _this.text(btnText);
-                layer.close(index);
-            }, function (index) {
-                layer.close(index);
-            });
         } else if (layEvent === 'del') { //删除
             layer.confirm('确定删除此用户？', { icon: 3, title: '提示信息' }, function (index) {
                 $.post("/users/deleteuser", {
@@ -173,5 +134,16 @@
                 })
             });
         }
+    });
+
+    //监听用户状态操作
+    form.on('switch(isActive)', function (obj) {
+        $.post("/users/changeuserstatus", { userId: this.value }, function (result) {
+            if (result.success) {
+                layer.msg("success")
+            } else {
+                layer.msg(result.error.msg)
+            }
+        })
     });
 })

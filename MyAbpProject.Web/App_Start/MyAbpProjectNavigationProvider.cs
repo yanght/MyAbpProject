@@ -14,11 +14,12 @@ namespace MyAbpProject.Web
     {
         public override void SetNavigation(INavigationProviderContext context)
         {
+
             context.Manager.MainMenu.
                 AddItem(
                     new MenuItemDefinition(
                         PageNames.Home,
-                        L("HomePage"),
+                        new FixedLocalizableString("主页"),
                         url: "",
                         icon: "home",
                         requiresAuthentication: true
@@ -26,14 +27,14 @@ namespace MyAbpProject.Web
                 ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Users,
-                        L("用户管理"),
+                        new FixedLocalizableString("用户管理"),
                         url: "",
                         icon: "user",
                         requiresAuthentication: true
                         ).AddItem(
                             new MenuItemDefinition(
                                  PageNames.Users,
-                                 L("用户列表"),
+                                  new FixedLocalizableString("用户列表"),
                                  url: "Users",
                                  icon: "user",
                                  requiresAuthentication: true
@@ -41,10 +42,26 @@ namespace MyAbpProject.Web
                         ).AddItem(
                             new MenuItemDefinition(
                                  PageNames.Roles,
-                                 L("角色列表"),
+                                 new FixedLocalizableString("角色列表"),
                                  url: "Roles",
                                  icon: "user",
                                  requiresAuthentication: true
+                                )
+                        )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Systems,
+                        new FixedLocalizableString("系统管理"),
+                        url: "",
+                        icon: "",
+                        requiresAuthentication: true
+                        ).AddItem(
+                            new MenuItemDefinition(
+                                    PageNames.Audities,
+                                    new FixedLocalizableString("系统日志"),
+                                    icon: "",
+                                    url: "/systems/audited",
+                                    requiresAuthentication: true
                                 )
                         )
                 );

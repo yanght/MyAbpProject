@@ -19,6 +19,7 @@ namespace MyAbpProject.EntityFramework.Repositories
 
         public List<RechargeField> GetFields()
         {
+            
             var query = Query("select * from RechargeFields");
             return query.ToList();
         }

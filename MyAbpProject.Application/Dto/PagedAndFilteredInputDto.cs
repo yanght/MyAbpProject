@@ -21,6 +21,8 @@ namespace MyAbpProject.Dto
 
         public string Filter { get; set; }
 
+        public string Sorting { get; set; }
+
         public PagedAndFilteredInputDto()
         {
             MaxResultCount = AppConsts.DefaultPageSize;

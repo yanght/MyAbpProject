@@ -73,7 +73,7 @@ namespace MyAbpProject.Web.Controllers
         }
         [AbpMvcAuthorize(PermissionNames.Pages_Roles_Update)]
         [HttpPost]
-        public async Task<ActionResult> UpdateRole(RoleDto role)
+        public async Task<JsonResult> UpdateRole(RoleDto role)
         {
             RoleDto result = await _roleAppService.Update(role);
 
@@ -82,7 +82,7 @@ namespace MyAbpProject.Web.Controllers
 
         [AbpMvcAuthorize(PermissionNames.Pages_Roles_Delete)]
         [HttpPost]
-        public async Task<ActionResult> DeleteRole(int roleId = 0)
+        public async Task<JsonResult> DeleteRole(int roleId = 0)
         {
             await _roleAppService.Delete(new EntityDto(roleId));
             return AbpJson(Task.FromResult(true));

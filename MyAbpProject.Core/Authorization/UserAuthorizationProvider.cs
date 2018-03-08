@@ -15,11 +15,7 @@ namespace MyAbpProject.Authorization
 
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
-            var users = context.CreatePermission(PermissionNames.Pages_Users, L("Permission_Users"));
            
-            users.CreateChildPermission(PermissionNames.Pages_Users_Create, L("Permission_Users_Create"));
-            users.CreateChildPermission(PermissionNames.Pages_Users_Update, L("Permission_Users_Update"));
-            users.CreateChildPermission(PermissionNames.Pages_Users_Detele, L("Permission_Users_Delete"));
         }
         private static ILocalizableString L(string name)
         {

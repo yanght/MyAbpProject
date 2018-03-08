@@ -39,7 +39,7 @@
                     body.find("input[name='Name']").val(edit.name);
                     body.find("input[name='DisplayName']").val(edit.displayName);
                     if (edit.isStatic) {
-                        body.find("input[name='IsStatic']").attr("checked","checked");
+                        body.find("input[name='IsStatic']").attr("checked", "checked");
                     }
                     body.find("input[name='Description']").val(edit.description);
                     $("input[name='Permission']").each(function (index, item) {
@@ -49,7 +49,7 @@
                     })
                     form.render();
                 }
-           
+
                 //绑定解锁按钮的点击事件
                 body.find('button#close').on('click', function () {
                     layer.close(index);

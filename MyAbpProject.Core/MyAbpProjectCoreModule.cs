@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Abp.Auditing;
 using Abp.Localization.Dictionaries;
 using Abp.Localization.Dictionaries.Xml;
 using Abp.Modules;
@@ -43,13 +44,12 @@ namespace MyAbpProject
             #region [ register authorization provider ]
 
             Configuration.Authorization.Providers.Add<MyAbpProjectAuthorizationProvider>();
-            Configuration.Authorization.Providers.Add<UserAuthorizationProvider>();
-            Configuration.Authorization.Providers.Add<RoleAuthorizationProvider>();
+            //Configuration.Authorization.Providers.Add<UserAuthorizationProvider>();
+            //Configuration.Authorization.Providers.Add<RoleAuthorizationProvider>();
 
             #endregion
 
             Configuration.Settings.Providers.Add<AppSettingProvider>();
-
 
         }
 
