@@ -21,7 +21,7 @@ namespace MyAbpProject.Web
                         PageNames.Home,
                         new FixedLocalizableString("主页"),
                         url: "",
-                        icon: "home",
+                        icon: "&#xe68e;",
                         requiresAuthentication: true
                         )
                 ).AddItem(
@@ -29,14 +29,14 @@ namespace MyAbpProject.Web
                         PageNames.Users,
                         new FixedLocalizableString("用户管理"),
                         url: "",
-                        icon: "user",
+                        icon: "&#xe612;",
                         requiresAuthentication: true
                         ).AddItem(
                             new MenuItemDefinition(
                                  PageNames.Users,
                                   new FixedLocalizableString("用户列表"),
                                  url: "Users",
-                                 icon: "user",
+                                 icon: "&#xe62d;",
                                  requiresAuthentication: true
                                 )
                         ).AddItem(
@@ -44,7 +44,7 @@ namespace MyAbpProject.Web
                                  PageNames.Roles,
                                  new FixedLocalizableString("角色列表"),
                                  url: "Roles",
-                                 icon: "user",
+                                 icon: "&#xe613;",
                                  requiresAuthentication: true
                                 )
                         )
@@ -53,13 +53,13 @@ namespace MyAbpProject.Web
                         PageNames.Systems,
                         new FixedLocalizableString("系统管理"),
                         url: "",
-                        icon: "",
+                        icon: "&#xe631;",
                         requiresAuthentication: true
                         ).AddItem(
                             new MenuItemDefinition(
                                     PageNames.Audities,
                                     new FixedLocalizableString("系统日志"),
-                                    icon: "",
+                                    icon: "&#xe621;",
                                     url: "/systems/audited",
                                     requiresAuthentication: true
                                 )

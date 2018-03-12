@@ -14,5 +14,6 @@ namespace MyAbpProject.Systems.Dto
     {
         public string TenancyName { get; set; }
         public string UserName { get; set; }
+        public new string Exception { get; set; }
     }
 }

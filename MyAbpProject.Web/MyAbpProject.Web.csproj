@@ -610,6 +610,7 @@
     <Content Include="Views\Tenants\_EditTenantModal.js" />
     <Content Include="Views\Users\EditUser.js" />
     <Content Include="Views\Users\Index.js" />
+    <Content Include="Views\Users\user.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -703,6 +704,7 @@
     <Content Include="Content\json\userList.json" />
     <Content Include="Views\Roles\EditRole.cshtml" />
     <Content Include="Views\Systems\Audited.cshtml" />
+    <Content Include="Views\Users\ChangePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

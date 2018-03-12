@@ -14,5 +14,6 @@ namespace MyAbpProject.Dto
     public class PagedSortedAndFilteredInputDto : PagedAndSortedInputDto
     {
         public string Filter { get; set; }
+        public int PageIndex { get; set; }
     }
 }

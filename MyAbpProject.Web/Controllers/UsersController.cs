@@ -12,9 +12,12 @@ using Abp.Events.Bus.Handlers;
 using Abp.UI;
 using Abp.Web.Models;
 using Abp.Web.Mvc.Authorization;
+using Microsoft.AspNet.Identity;
 using MyAbpProject.Authorization;
 using MyAbpProject.Authorization.Roles;
+using MyAbpProject.Authorization.Users;
 using MyAbpProject.Roles.Dto;
+using MyAbpProject.Sessions;
 using MyAbpProject.Users;
 using MyAbpProject.Users.Dto;
 using MyAbpProject.Web.Models.Users;
@@ -26,11 +29,18 @@ namespace MyAbpProject.Web.Controllers
     {
         private readonly IUserAppService _userAppService;
         private readonly RoleManager _roleManager;
+        private readonly UserManager _userManager;
+        private readonly ISessionAppService _sessionAppService;
 
-        public UsersController(IUserAppService userAppService, RoleManager roleManager)
+        public UsersController(IUserAppService userAppService,
+            RoleManager roleManager,
+            UserManager userManager,
+            ISessionAppService sessionAppService)
         {
             _userAppService = userAppService;
             _roleManager = roleManager;
+            _userManager = userManager;
+            _sessionAppService = sessionAppService;
         }
 
         public async Task<ActionResult> Index()
@@ -46,10 +56,26 @@ namespace MyAbpProject.Web.Controllers
             return View(model);
         }
 
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> ChangePassword(string currentPassword, string newPassword)
+        {
+            var GetCurrentLoginInformationsOutput = await _sessionAppService.GetCurrentLoginInformations();
+
+            var result = await _userManager.ChangePasswordAsync(GetCurrentLoginInformationsOutput.User.Id, currentPassword, newPassword);
+
+            return AbpJson(result);
+        }
+
+
         public JsonResult UserList(GetUsersInput input)
         {
             //var users = (await _userAppService.GetAll(new PagedResultRequestDto { MaxResultCount = int.MaxValue })).Items; //Paging not implemented yet
-
+            input.PageIndex = input.SkipCount;
             input.SkipCount = (input.SkipCount - 1) * input.MaxResultCount;
 
             var result = _userAppService.GetUserByPage(input);

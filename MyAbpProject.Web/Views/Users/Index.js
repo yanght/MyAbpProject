@@ -86,7 +86,9 @@
                 curr: 1 //重新从第 1 页开始
             },
             where: {
-                UserName: $("input[name='UserName']").val()  //搜索的关键字
+                UserName: $("input[name='UserName']").val(),  //搜索的关键字
+                PhoneNumber: $("input[name='PhoneNumber']").val(),
+                IsActive: $("select[name='IsActive']").val()
             }
         })
 

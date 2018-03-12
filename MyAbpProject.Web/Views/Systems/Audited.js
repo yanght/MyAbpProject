@@ -20,8 +20,8 @@
         id: "userListTable",
         cols: [[
             { type: "checkbox", fixed: "left", width: 50 },
-            { field: 'tenantId', title: '租户Id', minWidth: 100, align: "center" },
-            { field: 'userId', title: '用户Id', align: 'center' },
+            { field: 'tenancyName', title: '租户', minWidth: 100, align: "center" },
+            { field: 'userName', title: '用户', align: 'center' },
             { field: 'serviceName', title: '服务名称', align: 'center', templet: '#activeSwitchTpl', unresize: true },
             { field: 'methodName', title: '方法名称', align: 'center', minWidth: 150 },
             { field: 'parameters', title: '请求参数', align: 'center', minWidth: 150 },

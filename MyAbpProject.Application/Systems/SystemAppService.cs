@@ -18,10 +18,12 @@ namespace MyAbpProject.Systems
     public class SystemAppService : ISystemAppService
     {
         private readonly IRepository<AuditLog, long> _auditLogRepository;
+        private readonly IAuditedRepository _auditedRepository;
 
-        public SystemAppService(IRepository<AuditLog, long> auditLogRepository)
+        public SystemAppService(IRepository<AuditLog, long> auditLogRepository, IAuditedRepository auditedRepository)
         {
             _auditLogRepository = auditLogRepository;
+            _auditedRepository = auditedRepository;
 
         }
         public PagedResultDto<AuditInfo> GetAuditLogs(GetAuditLogsInput input)
@@ -35,6 +37,11 @@ namespace MyAbpProject.Systems
             var audityLogs = query.PageBy(input).ToList();
 
             return new PagedResultDto<AuditInfo>(count, audityLogs.MapTo<List<AuditInfo>>());
+        }
+
+        public PagedResultDto<AuditLogDto> GetAuditLogsByPage(GetAuditLogsInput input)
+        {
+            return _auditedRepository.GetAuditLogs(input);
         }
     }
 }

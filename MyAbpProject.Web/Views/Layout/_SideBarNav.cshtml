@@ -93,13 +93,13 @@
                 @if (menuItem.Items.IsNullOrEmpty())
                 {
                     <a data-url="@menuItem.Url" lay-tips="@menuItem.DisplayName" lay-direction="2">
-                        <i class="layui-icon @menuItem.Icon"></i> <cite>@menuItem.DisplayName</cite>
+                        <i class="layui-icon" data-icon="@Html.Raw(menuItem.Icon)">@Html.Raw(menuItem.Icon)</i> <cite>@menuItem.DisplayName</cite>
                     </a>
                 }
                 else
                 {
                     <a data-url="@menuItem.Url" lay-tips="@menuItem.DisplayName" lay-direction="2">
-                        <i class="layui-icon @menuItem.Icon"></i> <cite>@menuItem.DisplayName</cite>
+                        <i class="layui-icon" data-icon="@Html.Raw(menuItem.Icon)">@Html.Raw(menuItem.Icon)</i> <cite>@menuItem.DisplayName</cite>
                         <span class="layui-nav-more"></span>
                     </a>
                     <dl class="layui-nav-child">
@@ -107,7 +107,7 @@
                         {
                             <dd>
                                 <a data-url="@subMenuItem.Url" lay-tips="@subMenuItem.DisplayName" lay-direction="2">
-                                    <i class="layui-icon @subMenuItem.Icon"></i> <cite>@subMenuItem.DisplayName</cite>
+                                    <i class="layui-icon" data-icon="@Html.Raw(subMenuItem.Icon)">@Html.Raw(subMenuItem.Icon)</i> <cite>@subMenuItem.DisplayName</cite>
                                 </a>
                             </dd>
                         }

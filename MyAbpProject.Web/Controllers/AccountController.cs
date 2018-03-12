@@ -54,8 +54,8 @@ namespace MyAbpProject.Web.Controllers
             IMultiTenancyConfig multiTenancyConfig,
             LogInManager logInManager,
             ISessionAppService sessionAppService,
-            ILanguageManager languageManager, 
-            ITenantCache tenantCache, 
+            ILanguageManager languageManager,
+            ITenantCache tenantCache,
             IAuthenticationManager authenticationManager)
         {
             _tenantManager = tenantManager;
@@ -172,6 +172,7 @@ namespace MyAbpProject.Web.Controllers
             _authenticationManager.SignOut();
             return RedirectToAction("Login");
         }
+
 
         #endregion
 

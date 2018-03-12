@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyAbpProject.Systems.Dto
 {
-    public class GetAuditLogsInput : PagedAndFilteredInputDto
+    public class GetAuditLogsInput : PagedSortedAndFilteredInputDto
     {
     }
 }

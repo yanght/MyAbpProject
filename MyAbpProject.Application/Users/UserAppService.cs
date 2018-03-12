@@ -61,7 +61,9 @@ namespace MyAbpProject.Users
         public PagedResultDto<UserDto> GetUserByPage(GetUsersInput input)
         {
             var query = _userRepository.GetAll()
-               .WhereIf(!input.UserName.IsNullOrEmpty(), t => t.UserName == input.UserName);
+               .WhereIf(!input.UserName.IsNullOrEmpty(), t => t.UserName == input.UserName)
+               .WhereIf(!input.PhoneNumber.IsNullOrEmpty(), t => t.PhoneNumber == input.PhoneNumber)
+               .WhereIf(!input.IsActive.IsNullOrEmpty(), m => m.IsActive == (input.IsActive == "true") ? true : false);
 
             //ÅÅÐò
             query = !string.IsNullOrEmpty(input.Sorting) ? query.OrderBy(input.Sorting) : query.OrderByDescending(t => t.CreationTime);

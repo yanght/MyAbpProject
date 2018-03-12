@@ -1,4 +1,5 @@
-﻿using DapperExtensions.Mapper;
+﻿using Abp.Auditing;
+using DapperExtensions.Mapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,15 @@ namespace MyAbpProject.Mapper
         public RechargeMapper()
         {
             Table("RechargeFields");
+            AutoMap();
+        }
+    }
+
+    public class AuditLogMapper : ClassMapper<AuditLog>
+    {
+        public AuditLogMapper()
+        {
+            Table("AbpAuditLogs");
             AutoMap();
         }
     }

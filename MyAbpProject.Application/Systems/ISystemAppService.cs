@@ -13,5 +13,6 @@ namespace MyAbpProject.Systems
     public interface ISystemAppService : IApplicationService
     {
         PagedResultDto<AuditInfo> GetAuditLogs(GetAuditLogsInput input);
+        PagedResultDto<AuditLogDto> GetAuditLogsByPage(GetAuditLogsInput input);
     }
 }
